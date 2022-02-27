@@ -8,6 +8,8 @@
   --green: #6cbe02;
   --grey1: #f0f0f0;
   --grey2: #e9d7d3;
+  --red: #dd2929;
+  --yellow: #ffd700;
 }
 
 /* Basic Reset */
@@ -66,7 +68,7 @@ Header
 }
 
 .top-nav {
-  background-color: var(--green);
+  background-color: var(--black);
   font-size: 1.3rem;
   color: var(--white);
 }
@@ -93,6 +95,7 @@ Navigation
 
 .nav-center {
   justify-content: space-between;
+  background-color: var(--black);
 }
 
 .nav-list .icons {
@@ -106,10 +109,11 @@ Navigation
 .nav-center .nav-link {
   font-size: 1.8rem;
   padding: 1rem;
+  color: var(--white);
 }
 
 .nav-center .nav-link:hover {
-  color: var(--green);
+  color: var(--yellow);
 }
 
 .nav-center .hamburger {
@@ -137,7 +141,7 @@ Navigation
   position: absolute;
   top: 3px;
   right: -3px;
-  background-color: var(--green);
+  background-color: var(--yellow);
   color: var(--white);
   border-radius: 50%;
   font-size: 1.3rem;
