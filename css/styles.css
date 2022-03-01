@@ -4,7 +4,7 @@
 /* Color Variables */
 :root {
   --white: #fff;
-  --black: #222;
+  --black: #000000;
   --green: #6cbe02;
   --grey1: #f0f0f0;
   --grey2: #e9d7d3;
@@ -29,15 +29,15 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 1.6rem;
-  background-color: var(--white);
-  color: var(--black);
+  background-color: var(--black);
+  color: var(--white);
   font-weight: 400;
   font-style: normal;
 }
 
 a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--white);
 }
 
 li {
@@ -65,6 +65,7 @@ Header
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: var(--black);
 }
 
 .top-nav {
@@ -92,7 +93,16 @@ Navigation
   height: 6rem;
   line-height: 6rem;
 }
-
+.navigation .nav-center .logo{
+  width: 70px;
+  bottom: 0px;
+}
+.navigation .nav-center .logo img{
+  position: absolute;
+  color: var(--white);
+  width: 70px;
+  top: 45px;
+}
 .nav-center {
   justify-content: space-between;
   background-color: var(--black);
@@ -205,143 +215,62 @@ Navigation
   }
 }
 
-/* 
-=================
-Hero Area
-=================
-*/
-
-.hero,
-.hero .glide__slides {
-  background-color: var(--grey2);
-  position: relative;
-  height: calc(100vh - 6rem);
-  margin: 0 4rem;
+/* Slide show */
+.slidershow{
+  width: 90%;
+  height: 600x;
   overflow: hidden;
 }
-
-.hero .center {
+.middle{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.navigat{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+}
+.bar{
+  width: 50px;
+  height: 10px;
+  border: 2px solid #fff;
+  margin: 6px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.bar:hover{
+  background: #fff;
+}
+
+input[name="r"]{
+    position: absolute;
+    visibility: hidden;
+}
+
+.slides{
+  width: 500%;
   height: 100%;
-  padding-top: 3rem;
+  display: flex;
 }
 
-.hero .left {
-  position: absolute;
-  top: 0%;
-  left: 25rem;
-  opacity: 0;
-  transition: all 1000ms ease-in-out;
+.slide{
+  width: 20%;
+  transition: 0.6s;
 }
-
-.hero .left h1 {
-  font-size: 5rem;
-  margin: 1rem 0;
-}
-
-.hero .left p {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-}
-
-.hero .left .hero-btn {
-  display: inline-block;
-  padding: 1rem 3rem;
-  font-size: 1.6rem;
-  margin-top: 1rem;
-  background-color: var(--green);
-  color: white;
-}
-
-.hero .right {
-  flex: 0 0 50%;
+.slide img{
+  width: 100%;
   height: 100%;
-  position: relative;
-  text-align: center;
 }
 
-.hero .right img {
-  position: absolute;
-  width: 55rem;
-  opacity: 0;
-  transition: all 1000ms ease-in-out;
+#r1:checked ~ .s1{
+  margin-left: 0;
 }
-
-.center .right img.img1 {
-  width: 85%;
-  right: -25%;
-  bottom: -50%;
-}
-
-.center .right img.img2 {
-  width: 90%;
-  right: -40%;
-  bottom: -40%;
-}
-
-.glide__slide--active .center .right img {
-  bottom: -3%;
-  opacity: 1;
-}
-
-.glide__slide--active .left {
-  opacity: 1;
-  top: 35%;
-}
-
-/*
-======================
-Hero Media Query
-======================
-*/
-@media only screen and (max-width: 1500px) {
-  .hero .left {
-    left: 0;
-  }
-}
-@media only screen and (max-width: 999px) {
-  .glide__slide--active .left {
-    top: 15%;
-  }
-
-  .center .right img.img1 {
-    width: 90%;
-  }
-
-  .center .right img.img2 {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 567px) {
-  .center .right img.img1 {
-    width: 30rem;
-  }
-
-  .center .right img.img2 {
-    width: 33rem;
-  }
-
-  .hero,
-  .hero .glide__slides {
-    margin: 0;
-    padding: 0 3rem;
-  }
-
-  .hero .left h1 {
-    font-size: 3rem;
-  }
-
-  .hero .left span {
-    font-size: 1.4rem;
-  }
-  .hero .left p {
-    font-size: 1.5rem;
-    width: 80%;
-  }
+#r2:checked ~ .s1{
+  margin-left: -20%;
 }
 
 /* Category Section */
@@ -354,14 +283,14 @@ Hero Media Query
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 114rem;
+  max-width: 100%;
   margin: auto;
   padding: 0 3rem;
 }
 
 .cat-center .cat {
   max-width: 37rem;
-  height: 25rem;
+  height: 40rem;
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -373,7 +302,7 @@ Hero Media Query
 }
 
 .cat-center .cat img {
-  width: 36.5rem;
+  width: 50rem;
   height: 100%;
   margin: auto;
   object-fit: cover;
@@ -390,6 +319,7 @@ Hero Media Query
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--white);
+  color: var(--black);
   width: 18rem;
   height: 5rem;
   line-height: 5rem;
@@ -485,7 +415,7 @@ Hero Media Query
 .product-info span {
   display: inline-block;
   font-size: 1.2rem;
-  color: #666;
+  color: var(--yellow);
   margin-bottom: 1rem;
 }
 
@@ -497,7 +427,7 @@ Hero Media Query
 }
 
 .product-info a:hover {
-  color: var(--green);
+  color: var(--yellow);
 }
 
 .product-item .icons {
@@ -511,6 +441,7 @@ Hero Media Query
 
 .product-item .icons li {
   background-color: var(--white);
+  color: var(--black);
   text-align: center;
   padding: 1rem 1.5rem;
   font-size: 2.3rem;
@@ -544,7 +475,7 @@ Hero Media Query
 }
 
 .product-item .icons li:hover {
-  background-color: var(--green);
+  background-color: var(--yellow);
   color: var(--white);
 }
 
@@ -581,7 +512,7 @@ Hero Media Query
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background-color: var(--green);
+  background-color: var(--yellow);
   padding: 0.5rem 1rem;
   color: var(--white);
   border-radius: 2rem;
@@ -617,7 +548,7 @@ Hero Media Query
 
 .banner {
   position: relative;
-  background-color: var(--grey2);
+  background-color: var(--white);
   padding: 14rem 20%;
 }
 
@@ -625,11 +556,12 @@ Hero Media Query
   position: absolute;
   bottom: 0;
   right: 10%;
-  width: 75rem;
+  width: 50rem;
 }
 
 .banner .trend,
 .banner p {
+  color: var(--yellow);
   display: block;
   font-size: 2rem;
   font-weight: 300;
@@ -644,6 +576,7 @@ Hero Media Query
 
 .banner .btn {
   display: inline-block;
+  color: var(--black);
   margin-top: 2rem;
 }
 
@@ -751,8 +684,8 @@ Hero Media Query
 }
 
 .btn-1 {
-  background-color: var(--green);
-  color: var(--white);
+  background-color: var(--yellow);
+  color: var(--black);
   display: inline-block;
   border-radius: 1rem;
   padding: 1rem 2rem;
@@ -778,8 +711,8 @@ Hero Media Query
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--green);
-  color: white;
+  background-color: var(--yellow);
+  color: var(--black);
   margin: 0.5rem;
   padding: 1rem 3rem;
   border-radius: 1rem;
@@ -811,7 +744,7 @@ Hero Media Query
 /* Footer */
 .footer {
   padding: 7rem 1rem;
-  background-color: var(--green);
+  background-color: var(--white);
 }
 
 footer .row {
@@ -823,7 +756,7 @@ footer .row {
 
 .footer .col {
   flex-direction: column;
-  color: var(--white);
+  color: var(--black);
   align-items: flex-start;
 }
 
@@ -835,11 +768,11 @@ footer .row {
 .footer .col:last-child span {
   font-size: 2.5rem;
   margin-right: 0.5rem;
-  color: var(--white);
+  color: var(--yellow);
 }
 
 .footer .col a {
-  color: var(--white);
+  color: var(--black);
   font-size: 1.5rem;
   padding: 0.5rem;
   font-weight: 300;
@@ -847,6 +780,7 @@ footer .row {
 
 .footer .col h4 {
   margin-bottom: 1rem;
+  color: var(--yellow);
 }
 
 @media only screen and (max-width: 567px) {
@@ -1164,7 +1098,7 @@ th {
   text-align: left;
   padding: 0.5rem;
   color: #fff;
-  background-color: var(--green);
+  background-color: var(--yellow);
   font-weight: normal;
 }
 
@@ -1179,6 +1113,7 @@ td input {
 }
 
 td a {
+  
   color: orangered;
   font-size: 1.4rem;
 }
@@ -1197,7 +1132,7 @@ td img {
 }
 
 .total-price table {
-  border-top: 3px solid var(--green);
+  border-top: 3px solid var(--yellow);
   width: 100%;
   max-width: 35rem;
 }
@@ -1212,7 +1147,7 @@ th:last-child {
 
 .checkout {
   display: inline-block;
-  background-color: var(--green);
+  background-color: var(--yellow);
   color: white;
   padding: 1rem;
   margin-top: 1rem;

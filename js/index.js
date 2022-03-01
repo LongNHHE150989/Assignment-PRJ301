@@ -6,7 +6,6 @@ if (hamburer) {
     navList.classList.toggle("open");
   });
 }
-
 // Popup
 const popup = document.querySelector(".popup");
 const closePopup = document.querySelector(".popup-close");
