@@ -561,7 +561,7 @@ input[name="r"]{
 
 .banner .trend,
 .banner p {
-  color: var(--yellow);
+  color: var(--black);
   display: block;
   font-size: 2rem;
   font-weight: 300;
