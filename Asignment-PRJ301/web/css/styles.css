@@ -1,17 +1,6 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
-/* Color Variables */
-:root {
-  --white: #fff;
-  --black: #000000;
-  --green: #6cbe02;
-  --grey1: #f0f0f0;
-  --grey2: #e9d7d3;
-  --red: #dd2929;
-  --yellow: #ffd700;
-}
-
 /* Basic Reset */
 *,
 *::before,
@@ -29,15 +18,15 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 1.6rem;
-  background-color: var(--black);
-  color: var(--white);
+  background-color: #000000;
+  color: #fff;
   font-weight: 400;
   font-style: normal;
 }
 
 a {
   text-decoration: none;
-  color: var(--white);
+  color: #fff;
 }
 
 li {
@@ -65,13 +54,13 @@ Header
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
-  background-color: var(--black);
+  background-color: #000000;
 }
 
 .top-nav {
-  background-color: var(--black);
+  background-color: #000000;
   font-size: 1.3rem;
-  color: var(--white);
+  color: #fff;
 }
 
 .top-nav div {
@@ -80,7 +69,7 @@ Header
 }
 
 .top-nav a {
-  color: var(--white);
+  color: #fff;
   padding: 0 0.5rem;
 }
 
@@ -99,13 +88,13 @@ Navigation
 }
 .navigation .nav-center .logo img{
   position: absolute;
-  color: var(--white);
+  color: #fff;
   width: 70px;
   top: 45px;
 }
 .nav-center {
   justify-content: space-between;
-  background-color: var(--black);
+  background-color: #000000;
 }
 
 .nav-list .icons {
@@ -119,17 +108,17 @@ Navigation
 .nav-center .nav-link {
   font-size: 1.8rem;
   padding: 1rem;
-  color: var(--white);
+  color: #fff;
 }
 
 .nav-center .nav-link:hover {
-  color: var(--yellow);
+  color: #ffd700;
 }
 
 .nav-center .hamburger {
   display: none;
   font-size: 2.3rem;
-  color: var(--black);
+  color: #000000;
   cursor: pointer;
 }
 
@@ -151,8 +140,8 @@ Navigation
   position: absolute;
   top: 3px;
   right: -3px;
-  background-color: var(--yellow);
-  color: var(--white);
+  background-color: #ffd700;
+  color: #fff;
   border-radius: 50%;
   font-size: 1.3rem;
   height: 2rem;
@@ -188,12 +177,12 @@ Navigation
 
   .nav-list .nav-link {
     font-size: 2rem;
-    color: var(--black);
+    color: #000000;
   }
 
   .nav-center .hamburger {
     display: block;
-    color: var(--black);
+    color: #000000;
     font-size: 3rem;
   }
 
@@ -318,8 +307,8 @@ input[name="r"]{
   bottom: 15%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--white);
-  color: var(--black);
+  background-color: #fff;
+  color: #000000;
   width: 18rem;
   height: 5rem;
   line-height: 5rem;
@@ -415,7 +404,7 @@ input[name="r"]{
 .product-info span {
   display: inline-block;
   font-size: 1.2rem;
-  color: var(--yellow);
+  color: #ffd700;
   margin-bottom: 1rem;
 }
 
@@ -427,7 +416,7 @@ input[name="r"]{
 }
 
 .product-info a:hover {
-  color: var(--yellow);
+  color: #ffd700;
 }
 
 .product-item .icons {
@@ -440,8 +429,8 @@ input[name="r"]{
 }
 
 .product-item .icons li {
-  background-color: var(--white);
-  color: var(--black);
+  background-color: #fff;
+  color: #000000;
   text-align: center;
   padding: 1rem 1.5rem;
   font-size: 2.3rem;
@@ -475,8 +464,8 @@ input[name="r"]{
 }
 
 .product-item .icons li:hover {
-  background-color: var(--yellow);
-  color: var(--white);
+  background-color: #ffd700;
+  color: #fff;
 }
 
 .product-item .overlay {
@@ -512,9 +501,9 @@ input[name="r"]{
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background-color: var(--yellow);
+  background-color: #ffd700;
   padding: 0.5rem 1rem;
-  color: var(--white);
+  color: #fff;
   border-radius: 2rem;
   font-size: 1.5rem;
 }
@@ -548,7 +537,7 @@ input[name="r"]{
 
 .banner {
   position: relative;
-  background-color: var(--white);
+  background-color: #fff;
   padding: 14rem 20%;
 }
 
@@ -561,7 +550,7 @@ input[name="r"]{
 
 .banner .trend,
 .banner p {
-  color: var(--black);
+  color: #000000;
   display: block;
   font-size: 2rem;
   font-weight: 300;
@@ -570,13 +559,13 @@ input[name="r"]{
 
 .banner h1 {
   font-size: 5.4rem;
-  color: var(--black);
+  color: #000000;
   margin-bottom: 1.5rem;
 }
 
 .banner .btn {
   display: inline-block;
-  color: var(--black);
+  color: #000000;
   margin-top: 2rem;
 }
 
@@ -663,8 +652,8 @@ input[name="r"]{
 
 /* Contact */
 .contact {
-  background-color: var(--black);
-  color: var(--white);
+  background-color: #000000;
+  color: #fff;
   padding: 10rem 20rem;
 }
 
@@ -684,8 +673,8 @@ input[name="r"]{
 }
 
 .btn-1 {
-  background-color: var(--yellow);
-  color: var(--black);
+  background-color: #ffd700;
+  color: #000000;
   display: inline-block;
   border-radius: 1rem;
   padding: 1rem 2rem;
@@ -711,8 +700,8 @@ input[name="r"]{
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--yellow);
-  color: var(--black);
+  background-color: #ffd700;
+  color: #000000;
   margin: 0.5rem;
   padding: 1rem 3rem;
   border-radius: 1rem;
@@ -744,7 +733,7 @@ input[name="r"]{
 /* Footer */
 .footer {
   padding: 7rem 1rem;
-  background-color: var(--white);
+  background-color: #fff;
 }
 
 footer .row {
@@ -756,7 +745,7 @@ footer .row {
 
 .footer .col {
   flex-direction: column;
-  color: var(--black);
+  color: #000000;
   align-items: flex-start;
 }
 
@@ -768,11 +757,11 @@ footer .row {
 .footer .col:last-child span {
   font-size: 2.5rem;
   margin-right: 0.5rem;
-  color: var(--yellow);
+  color: #ffd700;
 }
 
 .footer .col a {
-  color: var(--black);
+  color: #000000;
   font-size: 1.5rem;
   padding: 0.5rem;
   font-weight: 300;
@@ -780,7 +769,7 @@ footer .row {
 
 .footer .col h4 {
   margin-bottom: 1rem;
-  color: var(--yellow);
+  color: #ffd700;
 }
 
 @media only screen and (max-width: 567px) {
@@ -815,7 +804,7 @@ footer .row {
   padding: 1.6rem;
   display: table;
   overflow: hidden;
-  background-color: var(--white);
+  background-color: #fff;
 }
 
 .popup-close {
@@ -826,7 +815,7 @@ footer .row {
   top: 2rem;
   right: 2rem;
   padding: 0.5rem;
-  background-color: var(--green);
+  background-color: #ffd700;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -877,7 +866,7 @@ footer .row {
 }
 
 .right-content h1 span {
-  color: var(--green);
+  color: #ffd700;
 }
 
 .right-content p {
@@ -892,14 +881,14 @@ footer .row {
   text-indent: 1rem;
   margin-bottom: 1.6rem;
   border-radius: 3rem;
-  background-color: var(--green);
-  color: white;
+  background-color: #ffd700;
+  color: #000000;
   font-size: 1.8rem;
   border: none;
 }
 
 .popup-form::placeholder {
-  color: white;
+  color: #555;
 }
 
 .popup-form:focus {
@@ -912,16 +901,16 @@ footer .row {
   padding: 1.8rem 5rem;
   border-radius: 3rem;
   font-weight: 700;
-  color: var(--white);
-  background-color: var(--black);
-  border: 1px solid var(--grey2);
+  color: #fff;
+  background-color: #000000;
+  border: 1px solid #e9d7d3;
   transition: 0.3s;
 }
 
 .right-content a:hover {
-  background-color: var(--green);
-  border: 1px solid var(--grey2);
-  color: var(--black);
+  background-color: #ffd700;
+  border: 1px solid #e9d7d3;
+  color: #000000;
 }
 
 .hide-popup {
@@ -1066,7 +1055,7 @@ form span {
 .pagination span {
   display: inline-block;
   padding: 1rem 1.5rem;
-  border: 1px solid var(--green);
+  border: 1px solid #ffd700;
   font-size: 1.8rem;
   margin-bottom: 2rem;
   cursor: pointer;
@@ -1074,8 +1063,8 @@ form span {
 }
 
 .pagination span:hover {
-  border: 1px solid var(--green);
-  background-color: var(--green);
+  border: 1px solid #ffd700;
+  background-color: #ffd700;
   color: #fff;
 }
 
@@ -1098,7 +1087,7 @@ th {
   text-align: left;
   padding: 0.5rem;
   color: #fff;
-  background-color: var(--yellow);
+  background-color: #ffd700;
   font-weight: normal;
 }
 
@@ -1132,7 +1121,7 @@ td img {
 }
 
 .total-price table {
-  border-top: 3px solid var(--yellow);
+  border-top: 3px solid #ffd700;
   width: 100%;
   max-width: 35rem;
 }
@@ -1147,7 +1136,7 @@ th:last-child {
 
 .checkout {
   display: inline-block;
-  background-color: var(--yellow);
+  background-color: #ffd700;
   color: white;
   padding: 1rem;
   margin-top: 1rem;
@@ -1199,7 +1188,7 @@ th:last-child {
 .product-detail .right .price {
   font-size: 600;
   font-size: 2rem;
-  color: var(--green);
+  color: #ffd700;
   margin-bottom: 2rem;
 }
 
@@ -1244,7 +1233,7 @@ th:last-child {
 }
 
 .product-detail .form .addCart {
-  background: var(--green);
+  background: #ffd700;
   padding: 0.8rem 4rem;
   color: #fff;
   border-radius: 3rem;
@@ -1333,7 +1322,7 @@ th:last-child {
   font-size: 1.6rem;
   padding: 1rem 3rem;
   margin-right: 1.5rem;
-  background-color: var(--yellow);
+  background-color: #ffd700;
   color: black;
   cursor: pointer;
 }
