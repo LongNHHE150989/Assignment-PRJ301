@@ -1,3 +1,10 @@
+<%-- 
+    Document   : signup
+    Created on : Mar 7, 2022, 3:44:35 PM
+    Author     : long4
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +17,7 @@
     />
     <!-- Custom StyleSheet -->
     <link rel="stylesheet" href="./css/styles.css" />
-    <title>Login</title>
+    <title>Sign Up</title>
   </head>
   <body>
     <!-- Navigation -->
@@ -45,7 +52,7 @@
             <a href="#contact" class="nav-link">Contact</a>
           </li>
           <li class="icons d-flex">
-            <a href="login.html" class="icon">
+            <a href="login.jsp" class="icon">
               <i class="bx bx-user"></i>
             </a>
             <div class="icon">
@@ -63,7 +70,7 @@
         </ul>
 
         <div class="icons d-flex">
-          <a href="login.html" class="icon">
+          <a href="login.jsp" class="icon">
             <i class="bx bx-user"></i>
           </a>
           <div class="icon">
@@ -88,17 +95,17 @@
     <div class="container">
       <div class="login-form">
         <form action="">
-          <h1>Login</h1>
+          <h1>Sign Up</h1>
           <p>
-            Already have an account? Login in or
-            <a href="signup.html">Sign Up</a>
+            Please fill in this form to create an account. or
+            <a href="login.jsp">Login</a>
           </p>
 
           <label for="email">Email</label>
-          <input type="text" placeholder="Enter Email" name="email" required />
+          <input id="email" type="email" placeholder="Enter Email" name="email" required />
 
           <label for="psw">Password</label>
-          <input
+          <input id="psw"
             type="password"
             placeholder="Enter Password"
             name="psw"
@@ -130,7 +137,7 @@
 
           <div class="buttons">
             <button type="button" class="cancelbtn">Cancel</button>
-            <button type="submit" class="signupbtn">Login</button>
+            <button type="submit" class="signupbtn">Sign Up</button>
           </div>
         </form>
       </div>
@@ -167,3 +174,4 @@
     <script src="./js/index.js"></script>
   </body>
 </html>
+
