@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,8 +10,8 @@
       href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
     />
     <!-- Custom StyleSheet -->
-    <link rel="stylesheet" href="../css/styles.css" />
-    <title>Khuyên tai bạc Compass</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>${requestScope.product.name}</title>
   </head>
 
   <body>
@@ -27,11 +28,11 @@
     </div>
     <div class="navigation">
       <div class="nav-center container d-flex">
-        <a href="../index.html" class="logo"><img src="../images/logo.png"></a>
+        <a href="home" class="logo"><img src="images/logo.png"></a>
 
         <ul class="nav-list d-flex">
           <li class="nav-item">
-            <a href="../index.html" class="nav-link">Home</a>
+            <a href="home" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
             <a href="../product.html" class="nav-link">Shop</a>
@@ -91,27 +92,14 @@
       <div class="details container">
         <div class="left image-container">
           <div class="main">
-            <img src="../images/earring2.jpg" id="zoom" alt="" />
+            <img src="${requestScope.product.image}" id="zoom" alt="" />
           </div>
         </div>
         <div class="right">
           <span>Home/Earrings</span>
-          <h1>Khuyên tai bạc Compass</h1>
-          <div class="price">$50</div>
-          <form>
-            <div>
-              <select>
-                <option value="Select Size" selected disabled>
-                  Select Size
-                </option>
-                <option value="1">32</option>
-                <option value="2">42</option>
-                <option value="3">52</option>
-                <option value="4">62</option>
-              </select>
-              <span><i class="bx bx-chevron-down"></i></span>
-            </div>
-          </form>
+          <h1>${requestScope.product.name}</h1>
+          <div class="price">$${requestScope.product.price}</div>
+
           <form class="form">
             <input type="text" placeholder="1" />
             <a href="../cart.html" class="addCart">Add To Cart</a>
@@ -249,3 +237,4 @@
     </script>
   </body>
 </html>
+

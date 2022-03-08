@@ -131,19 +131,19 @@
         <section class="section category">
             <div class="cat-center">
                 <div class="cat">
-                    <img src="./images/cat3.jpg" alt="" />
+                    <img src="./images/cat1.jpg" alt="" />
                     <div>
                         <a href="./product_ring/all_ring_product.html">RING</a>
                     </div>
                 </div>
                 <div class="cat">
-                    <img src="./images/cat1.jpg" alt="" />
+                    <img src="./images/cat2.jpg" alt="" />
                     <div>
                         <a href="./product_earring/all_earring_product.html">EARRINGS</a>
                     </div>
                 </div>
                 <div class="cat">
-                    <img src="./images/cat2.jpg" alt="" />
+                    <img src="./images/cat3.jpg" alt="" />
                     <div>
                         <a href="./product_neckplace/all_neckplace_product.html">NECKPLACE</a>
                     </div>
@@ -168,7 +168,7 @@
                         </div>
                         <div class="product-info">
                             <span>NECKLACE</span>
-                            <a href="./product_neckplace/neckplace1.html">${o.name}</a>
+                            <a href="details?pid=${o.id}">${o.name}</a>
                             <h4>$700</h4>
                         </div>
                         <ul class="icons">
@@ -176,10 +176,8 @@
                             <li><i class="bx bx-search"></i></li>
                             <li><i class="bx bx-cart"></i></li>
                         </ul>
-                    </c:forEach>
-
-                </div>
-
+                    </div>
+                </c:forEach>
             </div>
         </section>
 
