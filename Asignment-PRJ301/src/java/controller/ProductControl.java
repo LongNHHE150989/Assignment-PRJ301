@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,8 +21,7 @@ import model.Product;
  *
  * @author long4
  */
-@WebServlet(name = "HomeControl", urlPatterns = {"/home"})
-public class HomeControl extends HttpServlet {
+public class ProductControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,13 +37,10 @@ public class HomeControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         ProductDAO dao= new ProductDAO();
-        List<Product> listnew = dao.getNewProduct();
-        CategoryDAO Cdao= new CategoryDAO();
-        List<Category> listC = Cdao.getAllCategory();
+        List<Product> list = dao.getAllProduct();
         
-        request.setAttribute("listC", listC);
-        request.setAttribute("listnew", listnew);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("product.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

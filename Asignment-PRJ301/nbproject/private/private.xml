@@ -4,10 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/web/home.jsp</file>
-            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/src/java/controller/DetailsControl.java</file>
-            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/src/java/controller/HomeControl.java</file>
+            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/web/product.jsp</file>
             <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/web/details.jsp</file>
             <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/src/java/dal/ProductDAO.java</file>
+            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/src/java/controller/CategoryControl.java</file>
+            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/src/java/dal/CategoryDAO.java</file>
         </group>
     </open-files>
 </project-private>

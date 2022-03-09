@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,8 +21,7 @@ import model.Product;
  *
  * @author long4
  */
-@WebServlet(name = "HomeControl", urlPatterns = {"/home"})
-public class HomeControl extends HttpServlet {
+public class CategoryControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,14 +35,10 @@ public class HomeControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        ProductDAO dao= new ProductDAO();
-        List<Product> listnew = dao.getNewProduct();
-        CategoryDAO Cdao= new CategoryDAO();
-        List<Category> listC = Cdao.getAllCategory();
+        CategoryDAO dao= new CategoryDAO();
+        List<Category> listC = dao.getAllCategory();
         
         request.setAttribute("listC", listC);
-        request.setAttribute("listnew", listnew);
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
@@ -60,7 +54,15 @@ public class HomeControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int a = Integer.parseInt(request.getParameter("cid"));
+        CategoryDAO Cdao= new CategoryDAO();
+        Category cate = Cdao.getCategory(a);
+        ProductDAO dao= new ProductDAO();
+        List<Product> listCt = dao. getCateProduct(a);
+        
+        request.setAttribute("cate", cate);
+        request.setAttribute("list", listCt);
+        request.getRequestDispatcher("product.jsp").forward(request, response);
     }
 
     /**

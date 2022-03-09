@@ -35,7 +35,7 @@
             <a href="home" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="../product.html" class="nav-link">Shop</a>
+            <a href="product" class="nav-link">Shop</a>
           </li>
           <li class="nav-item">
             <a href="#terms" class="nav-link">Terms</a>
@@ -106,9 +106,7 @@
           </form>
           <h3>Product Detail</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero minima
-            delectus nulla voluptates nesciunt quidem laudantium, quisquam
-            voluptas facilis dicta in explicabo, laboriosam ipsam suscipit!
+            ${requestScope.product.description}
           </p>
         </div>
       </div>

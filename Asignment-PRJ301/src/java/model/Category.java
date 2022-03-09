@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author long4
@@ -12,13 +14,16 @@ package model;
 public class Category {
     private int cateID;
     private String cname;
-
+    private String cimage;
+    private ArrayList<Product> CPlist = new ArrayList();
+    
     public Category() {
     }
 
-    public Category(int cateID, String cname) {
+    public Category(int cateID, String cname, String cimage) {
         this.cateID = cateID;
         this.cname = cname;
+        this.cimage = cimage;
     }
 
     public int getCateID() {
@@ -37,10 +42,14 @@ public class Category {
         this.cname = cname;
     }
 
-    @Override
-    public String toString() {
-        return "Category{" + "cateID=" + cateID + ", cname=" + cname + '}';
+    public String getCimage() {
+        return cimage;
     }
+
+    public void setCimage(String cimage) {
+        this.cimage = cimage;
+    }
+
     
     
 }
