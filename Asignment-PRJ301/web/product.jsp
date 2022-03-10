@@ -18,7 +18,7 @@
             />
         <!-- Custom StyleSheet -->
         <link rel="stylesheet" href="./css/styles.css" />
-        <title>ALL ${cate.cname} PRODUCTS</title>
+        <title>ALL ${cate.cname}${search} PRODUCTS</title>
     </head>
 
     <body>
@@ -97,7 +97,7 @@
         <!-- All Products -->
         <section class="section all-products" id="products">
             <div class="top container">
-                <h1>ALL ${cate.cname} PRODUCTS</h1>
+                <h1>ALL ${cate.cname}${search} PRODUCTS</h1>
                 <form>
                     <select>
                         <option value="1">Default Sorting</option>

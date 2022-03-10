@@ -132,11 +132,45 @@ public class ProductDAO extends BaseDAO<Product> {
         }
         return null;
     }
-
+    
+    public List<Product> getSearchProduct(String s) {
+        List<Product> listS = new ArrayList<>();
+        try {
+            String sql = "select p.ID,"
+                    + " p.name,"
+                    + " p.image,"
+                    + " p.price,"
+                    + " c.cateID,"
+                    + " c.cname \n"
+                    + " from product p inner join Category c\n"
+                    + "on p.cateID = c.cateID\n"
+                    + "where name like ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, "%"+s+"%");
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Product a = new Product();
+                a.setId(rs.getInt("id"));
+                a.setName(rs.getString("name"));
+                a.setImage(rs.getString("image"));
+                a.setPrice(rs.getDouble("price"));
+                Category cate = new Category();
+                cate.setCateID(rs.getInt("cateID"));
+                cate.setCname(rs.getString("cname"));
+                a.setCategory(cate);
+                listS.add(a);
+            }
+            return listS;
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        List<Product> listCt = dao.getCateProduct(2);
-        for (Product o : listCt) {
+        List<Product> listS = dao.getSearchProduct("y");
+        for (Product o : listS) {
             System.out.println(o);
         }
     }

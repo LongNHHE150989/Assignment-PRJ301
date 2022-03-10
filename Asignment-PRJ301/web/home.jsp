@@ -60,35 +60,19 @@
                         <li class="nav-item">
                             <a href="#contact" class="nav-link">Contact</a>
                         </li>
-                        <li class="icons d-flex">
-                            <a href="login.jsp" class="icon">
-                                <i class="bx bx-user"></i>
-                            </a>
-                            <div class="icon">
-                                <i class="bx bx-search"></i>
-                            </div>
-                            <div class="icon">
-                                <i class="bx bx-heart"></i>
-                                <span class="d-flex">0</span>
-                            </div>
-                            <a href="cart.html" class="icon">
-                                <i class="bx bx-cart"></i>
-                                <span class="d-flex">0</span>
-                            </a>
-                        </li>
                     </ul>
 
                     <div class="icons d-flex">
                         <a href="login.jsp" class="icon">
                             <i class="bx bx-user"></i>
                         </a>
-                        <div class="icon">
+                        <a href="search" class="icon">
                             <i class="bx bx-search"></i>
-                        </div>
-                        <div class="icon">
+                        </a>
+                        <a href="" class="icon">
                             <i class="bx bx-heart"></i>
                             <span class="d-flex">0</span>
-                        </div>
+                        </a>
                         <a href="cart.html" class="icon">
                             <i class="bx bx-cart"></i>
                             <span class="d-flex">0</span>
