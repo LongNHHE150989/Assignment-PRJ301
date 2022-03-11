@@ -46,26 +46,10 @@
           <li class="nav-item">
             <a href="#contact" class="nav-link">Contact</a>
           </li>
-          <li class="icons d-flex">
-            <a href="../login.html" class="icon">
-              <i class="bx bx-user"></i>
-            </a>
-            <div class="icon">
-              <i class="bx bx-search"></i>
-            </div>
-            <div class="icon">
-              <i class="bx bx-heart"></i>
-              <span class="d-flex">0</span>
-            </div>
-            <a href="../cart.html" class="icon">
-              <i class="bx bx-cart"></i>
-              <span class="d-flex">0</span>
-            </a>
-          </li>
         </ul>
 
         <div class="icons d-flex">
-          <a href="../login.html" class="icon">
+          <a href="login.jsp" class="icon">
             <i class="bx bx-user"></i>
           </a>
           <div class="icon">
@@ -75,7 +59,7 @@
             <i class="bx bx-heart"></i>
             <span class="d-flex">0</span>
           </div>
-          <a href="../cart.html" class="icon">
+          <a href="cart.html" class="icon">
             <i class="bx bx-cart"></i>
             <span class="d-flex">0</span>
           </a>
@@ -102,7 +86,7 @@
 
           <form class="form">
             <input type="text" placeholder="1" />
-            <a href="../cart.html" class="addCart">Add To Cart</a>
+            <a href="cart.html" class="addCart">Add To Cart</a>
           </form>
           <h3>Product Detail</h3>
           <p>
@@ -122,7 +106,7 @@
         <div class="product-item">
           <div class="overlay">
             <a href="" class="product-thumb">
-              <img src="../images/earring3.jpg" alt="" />
+              <img src="./images/earring3.jpg" alt="" />
             </a>
           </div>
           <div class="product-info">
@@ -139,7 +123,7 @@
         <div class="product-item">
           <div class="overlay">
             <a href="" class="product-thumb">
-              <img src="../images/earring2.jpg" alt="" />
+              <img src="./images/earring2.jpg" alt="" />
             </a>
             <span class="discount">50%</span>
           </div>
@@ -157,7 +141,7 @@
         <div class="product-item">
           <div class="overlay">
             <a href="" class="product-thumb">
-              <img src="../images/earring4.jpg" alt="" />
+              <img src="./images/earring4.jpg" alt="" />
             </a>
           </div>
           <div class="product-info">
@@ -174,7 +158,7 @@
         <div class="product-item">
           <div class="overlay">
             <a href="" class="product-thumb">
-              <img src="../images/earring5.jpg" alt="" />
+              <img src="./images/earring5.jpg" alt="" />
             </a>
             <span class="discount">50%</span>
           </div>
@@ -191,6 +175,7 @@
         </div>
       </div>
     </section>
+    <hr
     <!-- Footer -->
     <footer class="footer">
       <div class="row">

@@ -33,14 +33,14 @@
         </div>
         <div class="navigation">
             <div class="nav-center container d-flex">
-                <a href="index.html" class="logo"><img src="./images/logo.png"></a>
+                <a href="home" class="logo"><img src="./images/logo.png"></a>
 
                 <ul class="nav-list d-flex">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="home" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="product.html" class="nav-link">Shop</a>
+                        <a href="product" class="nav-link">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a href="#terms" class="nav-link">Terms</a>
@@ -50,22 +50,6 @@
                     </li>
                     <li class="nav-item">
                         <a href="#contact" class="nav-link">Contact</a>
-                    </li>
-                    <li class="icons d-flex">
-                        <a href="login.jsp" class="icon">
-                            <i class="bx bx-user"></i>
-                        </a>
-                        <div class="icon">
-                            <i class="bx bx-search"></i>
-                        </div>
-                        <div class="icon">
-                            <i class="bx bx-heart"></i>
-                            <span class="d-flex">0</span>
-                        </div>
-                        <a href="cart.html" class="icon">
-                            <i class="bx bx-cart"></i>
-                            <span class="d-flex">0</span>
-                        </a>
                     </li>
                 </ul>
 
@@ -101,24 +85,14 @@
                         <a href="signup.jsp">Sign Up</a>
                     </p>
 
-                    <label for="email">Email</label>
-                    <input id="email" type="email" placeholder="Enter Email" name="email" required />
+                    <label for="username">User Name</label>
+                    <input id="username" type="text" placeholder="Enter User Name" name="username" required />
 
-                    <label for="psw">Password</label>
-                    <input id="psw"
-                        type="password"
-                        placeholder="Enter Password"
-                        name="psw"
-                        required
-                        />
-
+                    <label for="password">Password</label>
+                    <input id="password" type="password" placeholder="Enter Password" name="password" required />
+                    <p class="text-danger">${mess}</p>
                     <label>
-                        <input
-                            type="checkbox"
-                            checked="checked"
-                            name="remember"
-                            style="margin-bottom: 15px"
-                            />
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom: 15px" />
                         Remember me
                     </label>
 
@@ -134,7 +108,8 @@
                 </form>
             </div>
         </div>
-
+        
+        <hr>
         <!-- Footer -->
         <footer class="footer">
             <div class="row">

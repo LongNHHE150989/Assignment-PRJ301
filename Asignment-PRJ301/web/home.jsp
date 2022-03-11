@@ -63,7 +63,7 @@
                     </ul>
 
                     <div class="icons d-flex">
-                        <a href="login.jsp" class="icon">
+                        <a href="login" class="icon">
                             <i class="bx bx-user"></i>
                         </a>
                         <a href="search" class="icon">

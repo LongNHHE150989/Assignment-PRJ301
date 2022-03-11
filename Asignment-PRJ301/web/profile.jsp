@@ -1,49 +1,201 @@
 <%-- 
     Document   : profile
-    Created on : Mar 7, 2022, 10:25:22 PM
+    Created on : Mar 11, 2022, 8:31:52 PM
     Author     : long4
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<link rel="stylesheet" href="./css/profile.css" />
-<div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4>
+<html>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <head>
+        <title>Profile</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="css/header.css" rel="stylesheet" type="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/profile.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header class="header" id="header" style="min-height: 30vh">
+            <!-- Top Nav -->
+            <div class="top-nav">
+                <div class="container d-flex">
+                    <p>Order Online Or Call Us: 0364946845</p>
+                    <ul class="d-flex">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-                    <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                    <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
-                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+            <div class="navigation">
+                <div class="nav-center container d-flex">
+                    <a href="home" class="logo">
+                        <img  src="./images/logo.png">
+                    </a>
+
+                    <ul class="nav-list d-flex">
+                        <li class="nav-item">
+                            <a href="home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="product" class="nav-link">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#terms" class="nav-link">Terms</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="icons d-flex">
+                        <a href="login.jsp" class="icon">
+                            <i class="bx bx-user"></i>
+                        </a>
+                        <a href="search" class="icon">
+                            <i class="bx bx-search"></i>
+                        </a>
+                        <a href="" class="icon">
+                            <i class="bx bx-heart"></i>
+                            <span class="d-flex">0</span>
+                        </a>
+                        <a href="cart.html" class="icon">
+                            <i class="bx bx-cart"></i>
+                            <span class="d-flex">0</span>
+                        </a>
+                    </div>
+
+                    <div class="hamburger">
+                        <i class="bx bx-menu-alt-left"></i>
+                    </div>
+                </div>
             </div>
+        </header>
+
+        <div class="container bootstrap snippet" style="margin-bottom: 50px">
+
+            <div class="row">
+                <div class="col-sm-3"><!--left col-->
+
+                    <div class="text-center">
+                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="" class="avatar img-circle img-thumbnail" alt="avatar">
+                        <h6>Upload a different photo...</h6>
+                        <input type="file" class="text-center center-block file-upload">
+                    </div></hr><br>
+
+                </div><!--/col-3-->
+                <div class="col-sm-9">
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home">
+                            <form class="form" action="##" method="post" id="registrationForm">
+                                <div class="form-group">
+
+                                    <div class="col-xs-6">
+                                        <label for="first_name"><h4>First name</h4></label>
+                                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="col-xs-6">
+                                        <label for="last_name"><h4>Last name</h4></label>
+                                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="phone"><h4>Phone</h4></label>
+                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="email"><h4>Email</h4></label>
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="email"><h4>Location</h4></label>
+                                        <input type="text" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="password"><h4>Password</h4></label>
+                                        <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div><!--/tab-pane-->
+                    </div><!--/tab-pane-->
+                </div><!--/tab-pane-->
+            </div><!--/tab-content-->
         </div>
-    </div>
-</div>
+        <hr>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="row">
+                <div class="col d-flex">
+                    <h4>INFORMATION</h4>
+                    <a href="">About us</a>
+                    <a href="">Contact Us</a>
+                    <a href="">Term & Conditions</a>
+                    <a href="">Shipping Guide</a>
+                </div>
+                <div class="col d-flex">
+                    <h4>USEFUL LINK</h4>
+                    <a href="">Online Store</a>
+                    <a href="">Customer Services</a>
+                    <a href="">Promotion</a>
+                    <a href="">Top Brands</a>
+                </div>
+                <div class="col d-flex">
+                    <span><i class="bx bxl-facebook-square"></i></span>
+                    <span><i class="bx bxl-instagram-alt"></i></span>
+                    <span><i class="bx bxl-github"></i></span>
+                    <span><i class="bx bxl-twitter"></i></span>
+                    <span><i class="bx bxl-pinterest"></i></span>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Custom Script -->
+        <script src="./js/index.js"></script>
+    </body>
+
+
+
+</html>

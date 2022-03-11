@@ -18,9 +18,7 @@
     <body>
         <form action="search" method="post">
             <input type="search" name="text" required>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <button type="submit" />
-            <a href="javascript:void(0)" id="clear-btn">Clear</a>
+            <i class="fa-solid fa-magnifying-glass" style="font-size:28px"></i>
         </form>
     </body>
 </html>
