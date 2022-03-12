@@ -82,7 +82,7 @@
                     <h1>Login</h1>
                     <p>
                         Already have an account? Login in or
-                        <a href="signup.jsp">Sign Up</a>
+                        <a href="signup">Sign Up</a>
                     </p>
 
                     <label for="username">User Name</label>
@@ -95,11 +95,6 @@
                         <input type="checkbox" checked="checked" name="remember" style="margin-bottom: 15px" />
                         Remember me
                     </label>
-
-                    <p>
-                        By creating an account you agree to our
-                        <a href="#">Terms & Privacy</a>.
-                    </p>
 
                     <div class="buttons">
                         <button type="button" class="cancelbtn">Cancel</button>

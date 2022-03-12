@@ -18,7 +18,7 @@ import model.Account;
  *
  * @author long4
  */
-public class LoginControl extends HttpServlet {
+public class SignupControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,6 +32,18 @@ public class LoginControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet SignupControl</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet SignupControl at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -46,7 +58,7 @@ public class LoginControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.getRequestDispatcher("signup.jsp").forward(request, response);
     }
 
     /**
@@ -60,17 +72,24 @@ public class LoginControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        AccountDAO dao = new AccountDAO();
-        Account a = dao.login(username, password);
-        if (a==null) {
-            request.setAttribute("mess", "Wrong User Name or Password!");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }else{
-            response.sendRedirect("home");
+        String repassword = request.getParameter("repassword");
+        if (!password.equals(repassword)) {
+            request.setAttribute("mess", "Password does not match!");
+            request.getRequestDispatcher("signup.jsp").forward(request, response);
+        } else {
+            AccountDAO dao = new AccountDAO();
+            Account a = dao.checkAccountExist(username);
+            if (a == null) {
+               dao.signup(username, password);
+               response.sendRedirect("login");
+            } else {
+                request.setAttribute("mess", "Username already exists!");
+                request.getRequestDispatcher("signup.jsp").forward(request, response);
+            }
         }
+
     }
 
     /**

@@ -33,14 +33,14 @@
         </div>
         <div class="navigation">
             <div class="nav-center container d-flex">
-                <a href="index.html" class="logo"><img src="./images/logo.png"></a>
+                <a href="home" class="logo"><img src="./images/logo.png"></a>
 
                 <ul class="nav-list d-flex">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="home" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="product.html" class="nav-link">Shop</a>
+                        <a href="product" class="nav-link">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a href="#terms" class="nav-link">Terms</a>
@@ -51,26 +51,10 @@
                     <li class="nav-item">
                         <a href="#contact" class="nav-link">Contact</a>
                     </li>
-                    <li class="icons d-flex">
-                        <a href="login.jsp" class="icon">
-                            <i class="bx bx-user"></i>
-                        </a>
-                        <div class="icon">
-                            <i class="bx bx-search"></i>
-                        </div>
-                        <div class="icon">
-                            <i class="bx bx-heart"></i>
-                            <span class="d-flex">0</span>
-                        </div>
-                        <a href="cart.html" class="icon">
-                            <i class="bx bx-cart"></i>
-                            <span class="d-flex">0</span>
-                        </a>
-                    </li>
                 </ul>
 
                 <div class="icons d-flex">
-                    <a href="login.jsp" class="icon">
+                    <a href="login" class="icon">
                         <i class="bx bx-user"></i>
                     </a>
                     <div class="icon">
@@ -94,11 +78,11 @@
         <!-- Login -->
         <div class="container">
             <div class="login-form">
-                <form action="">
+                <form action="signup" method="post">
                     <h1>Sign Up</h1>
                     <p>
                         Please fill in this form to create an account. or
-                        <a href="login.jsp">Login</a>
+                        <a href="login">Login</a>
                     </p>
 
                     <label for="username">User Name</label>
@@ -107,9 +91,11 @@
                     <label for="password">Password</label>
                     <input id="password" type="password" placeholder="Enter Password" name="password" required />
 
-                    <label for="password-repeat">Repeat Password</label>
-                    <input type="password" placeholder="Repeat Password" name="password-repeat" required />
-
+                    <label for="repassword">Repeat Password</label>
+                    <input type="password" placeholder="Repeat Password" name="repassword" required />
+                    
+                    <p class="text-danger">${mess}</p>
+                    
                     <label>
                         <input type="checkbox" checked="checked" name="remember" style="margin-bottom: 15px" />
                         Remember me

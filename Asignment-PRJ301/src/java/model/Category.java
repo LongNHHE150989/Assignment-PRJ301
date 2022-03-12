@@ -50,6 +50,11 @@ public class Category {
         this.cimage = cimage;
     }
 
+    @Override
+    public String toString() {
+        return "Category{" + "cateID=" + cateID + ", cname=" + cname + ", cimage=" + cimage + ", CPlist=" + CPlist + '}';
+    }
+    
     
     
 }
