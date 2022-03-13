@@ -4,6 +4,7 @@
     Author     : long4
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,6 +27,7 @@
         <script src="js/profile.js" type="text/javascript"></script>
     </head>
     <body>
+        <!-- Header -->
         <header class="header" id="header" style="min-height: 30vh">
             <!-- Top Nav -->
             <div class="top-nav">
@@ -41,7 +43,7 @@
             <div class="navigation">
                 <div class="nav-center container d-flex">
                     <a href="home" class="logo">
-                        <img  src="./images/logo.png">
+                        <img src="./images/logo.png">
                     </a>
 
                     <ul class="nav-list d-flex">
@@ -51,9 +53,12 @@
                         <li class="nav-item">
                             <a href="product" class="nav-link">Shop</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#terms" class="nav-link">Terms</a>
-                        </li>
+                        <c:if test="${sessionScope.acc.isAdmin}">
+                            <li class="nav-item">
+                                <a href="manager" class="nav-link">Manager Product</a>
+                            </li>
+                        </c:if>
+
                         <li class="nav-item">
                             <a href="#about" class="nav-link">About</a>
                         </li>
@@ -63,7 +68,11 @@
                     </ul>
 
                     <div class="icons d-flex">
-                        <a href="login.jsp" class="icon">
+                        <a <c:choose>
+                                <c:when test="${sessionScope.acc==null}">href="login"</c:when>
+                                <c:otherwise>href="profile.jsp"</c:otherwise>
+                            </c:choose> 
+                            class="icon">
                             <i class="bx bx-user"></i>
                         </a>
                         <a href="search" class="icon">
@@ -84,6 +93,7 @@
                     </div>
                 </div>
             </div>
+
         </header>
 
         <div class="container bootstrap snippet" style="margin-bottom: 50px">
@@ -152,7 +162,7 @@
                                     <div class="col-xs-12">
                                         <br>
                                         <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                        <a href="logout" class="btn btn-dark btn-lg" ><i class="glyphicon glyphicon-log-out"></i> Logout</a>
                                     </div>
                                 </div>
 
@@ -164,7 +174,7 @@
             </div><!--/tab-content-->
         </div>
         <hr>
-        
+
         <!-- Footer -->
         <footer class="footer">
             <div class="row">
@@ -183,17 +193,16 @@
                     <a href="">Top Brands</a>
                 </div>
                 <div class="col d-flex">
-                    <span><i class="bx bxl-facebook-square"></i></span>
-                    <span><i class="bx bxl-instagram-alt"></i></span>
-                    <span><i class="bx bxl-github"></i></span>
-                    <span><i class="bx bxl-twitter"></i></span>
-                    <span><i class="bx bxl-pinterest"></i></span>
+                    <span><i class='bx bxl-facebook-square'></i></span>
+                    <span><i class='bx bxl-instagram-alt'></i></span>
+                    <span><i class='bx bxl-github'></i></span>
+                    <span><i class='bx bxl-twitter'></i></span>
+                    <span><i class='bx bxl-pinterest'></i></span>
                 </div>
             </div>
         </footer>
 
         <!-- Custom Script -->
-        <script src="./js/index.js"></script>
     </body>
 
 

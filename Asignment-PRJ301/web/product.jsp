@@ -44,9 +44,11 @@
                     <li class="nav-item">
                         <a href="product" class="nav-link">Shop</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#terms" class="nav-link">Terms</a>
-                    </li>
+                    <c:if test="${sessionScope.acc.isAdmin}">
+                        <li class="nav-item">
+                            <a href="manager" class="nav-link">Manager Product</a>
+                        </li>
+                    </c:if>
                     <li class="nav-item">
                         <a href="#about" class="nav-link">About</a>
                     </li>
@@ -56,12 +58,16 @@
                 </ul>
 
                 <div class="icons d-flex">
-                    <a href="" class="icon">
+                    <a <c:choose>
+                            <c:when test="${sessionScope.acc==null}">href="login"</c:when>
+                            <c:otherwise>href="profile.jsp"</c:otherwise>
+                        </c:choose> 
+                        class="icon">
                         <i class="bx bx-user"></i>
                     </a>
-                    <div class="icon">
+                    <a href="search" class="icon">
                         <i class="bx bx-search"></i>
-                    </div>
+                    </a>
                     <div class="icon">
                         <i class="bx bx-heart"></i>
                         <span class="d-flex">0</span>
@@ -100,7 +106,9 @@
                             <a href="" class="product-thumb">
                                 <img src="${o.image}" alt="" />
                             </a>
-                            <span class="discount">50%</span>
+                            <c:if test="${o.sale}">
+                                <span class="discount">50%</span>
+                            </c:if>
                         </div>
                         <div class="product-info">
                             <span>${o.category.cname}</span>
@@ -117,7 +125,7 @@
 
             </div>
         </section>
-                <hr>
+        <hr>
         <!-- Footer -->
         <footer class="footer">
             <div class="row">

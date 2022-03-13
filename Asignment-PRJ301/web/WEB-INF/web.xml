@@ -20,6 +20,18 @@
         <servlet-name>SignupControl</servlet-name>
         <servlet-class>controller.SignupControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutControl</servlet-name>
+        <servlet-class>controller.LogoutControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagerControl</servlet-name>
+        <servlet-class>controller.ManagerControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteControl</servlet-name>
+        <servlet-class>controller.DeleteControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProductControl</servlet-name>
         <url-pattern>/product</url-pattern>
@@ -39,6 +51,18 @@
     <servlet-mapping>
         <servlet-name>SignupControl</servlet-name>
         <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutControl</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagerControl</servlet-name>
+        <url-pattern>/manager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteControl</servlet-name>
+        <url-pattern>/delete</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

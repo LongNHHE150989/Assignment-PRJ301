@@ -26,7 +26,7 @@
 
     <body>
         <!-- Header -->
-        <header class="header" id="header">
+        <header class="header" id="header" >
             <!-- Top Nav -->
             <div class="top-nav">
                 <div class="container d-flex">
@@ -40,7 +40,7 @@
             </div>
             <div class="navigation">
                 <div class="nav-center container d-flex">
-                    <a class="logo">
+                    <a href="home" class="logo">
                         <img src="./images/logo.png">
                     </a>
 
@@ -51,9 +51,12 @@
                         <li class="nav-item">
                             <a href="product" class="nav-link">Shop</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#terms" class="nav-link">Terms</a>
-                        </li>
+                        <c:if test="${sessionScope.acc.isAdmin}">
+                            <li class="nav-item">
+                                <a href="manager" class="nav-link">Manager Product</a>
+                            </li>
+                        </c:if>
+
                         <li class="nav-item">
                             <a href="#about" class="nav-link">About</a>
                         </li>
@@ -63,7 +66,11 @@
                     </ul>
 
                     <div class="icons d-flex">
-                        <a href="login" class="icon">
+                        <a <c:choose>
+                                <c:when test="${sessionScope.acc==null}">href="login"</c:when>
+                                <c:otherwise>href="profile.jsp"</c:otherwise>
+                            </c:choose> 
+                            class="icon">
                             <i class="bx bx-user"></i>
                         </a>
                         <a href="search" class="icon">
@@ -139,7 +146,9 @@
                         <div class="overlay">
                             <a href="" class="product-thumb">
                                 <img src="${o.image}" alt="" />
-                                <span class="discount">50%</span>
+                                <c:if test="${o.sale}">
+                                    <span class="discount">50%</span>
+                                </c:if>
                             </a>
                         </div>
                         <div class="product-info">

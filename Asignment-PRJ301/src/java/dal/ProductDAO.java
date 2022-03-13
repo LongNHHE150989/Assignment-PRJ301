@@ -28,8 +28,11 @@ public class ProductDAO extends BaseDAO<Product> {
                     + " p.name,"
                     + " p.image,"
                     + " p.price,"
+                    + " p.description,"
                     + " c.cateID,"
-                    + " c.cname \n"
+                    + " c.cname,"
+                    + " p.quantity,"
+                    + " p.sale \n"
                     + " from product p inner join Category c\n"
                     + "on p.cateID = c.cateID";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -40,9 +43,12 @@ public class ProductDAO extends BaseDAO<Product> {
                 a.setName(rs.getString("name"));
                 a.setImage(rs.getString("image"));
                 a.setPrice(rs.getDouble("price"));
+                a.setDescription(rs.getString("description"));
                 Category cate = new Category();
                 cate.setCateID(rs.getInt("cateID"));
                 cate.setCname(rs.getString("cname"));
+                a.setQuantity(rs.getInt("quantity"));
+                a.setSale(rs.getBoolean("sale"));
                 a.setCategory(cate);
                 list.add(a);
             }
@@ -67,6 +73,8 @@ public class ProductDAO extends BaseDAO<Product> {
                 a.setImage(rs.getString("image"));
                 a.setPrice(rs.getDouble("price"));
                 a.setDescription(rs.getString("description"));
+                a.setQuantity(rs.getInt("quantity"));
+                a.setSale(rs.getBoolean("sale"));
                 return a;
             }
         } catch (SQLException ex) {
@@ -82,8 +90,11 @@ public class ProductDAO extends BaseDAO<Product> {
                     + " p.name,"
                     + " p.image,"
                     + " p.price,"
+                    + " p.description,"
                     + " c.cateID,"
-                    + " c.cname \n"
+                    + " c.cname,"
+                    + " p.quantity,"
+                    + " p.sale \n"
                     + " from product p inner join Category c\n"
                     + "on p.cateID = c.cateID\n"
                     + "where id<=8";
@@ -95,10 +106,13 @@ public class ProductDAO extends BaseDAO<Product> {
                 a.setName(rs.getString("name"));
                 a.setImage(rs.getString("image"));
                 a.setPrice(rs.getDouble("price"));
+                a.setDescription(rs.getString("description"));
                 Category cate = new Category();
                 cate.setCateID(rs.getInt("cateID"));
                 cate.setCname(rs.getString("cname"));
                 a.setCategory(cate);
+                a.setQuantity(rs.getInt("quantity"));
+                a.setSale(rs.getBoolean("sale"));
                 listnew.add(a);
             }
             return listnew;
@@ -123,6 +137,8 @@ public class ProductDAO extends BaseDAO<Product> {
                 a.setImage(rs.getString("image"));
                 a.setPrice(rs.getDouble("price"));
                 a.setDescription(rs.getString("description"));
+                a.setQuantity(rs.getInt("quantity"));
+                a.setSale(rs.getBoolean("sale"));
                 listCt.add(a);
             }
             return listCt;
@@ -139,8 +155,11 @@ public class ProductDAO extends BaseDAO<Product> {
                     + " p.name,"
                     + " p.image,"
                     + " p.price,"
+                    + " p.description,"
                     + " c.cateID,"
-                    + " c.cname \n"
+                    + " c.cname,"
+                    + " p.quantity,"
+                    + " p.sale \n"
                     + " from product p inner join Category c\n"
                     + "on p.cateID = c.cateID\n"
                     + "where name like ?";
@@ -153,10 +172,13 @@ public class ProductDAO extends BaseDAO<Product> {
                 a.setName(rs.getString("name"));
                 a.setImage(rs.getString("image"));
                 a.setPrice(rs.getDouble("price"));
+                a.setDescription(rs.getString("description"));
                 Category cate = new Category();
                 cate.setCateID(rs.getInt("cateID"));
                 cate.setCname(rs.getString("cname"));
                 a.setCategory(cate);
+                a.setQuantity(rs.getInt("quantity"));
+                a.setSale(rs.getBoolean("sale"));
                 listS.add(a);
             }
             return listS;
@@ -165,10 +187,20 @@ public class ProductDAO extends BaseDAO<Product> {
         }
         return null;
     }
+    public void deleteProduct(int id) {
+        try {
+            String sql = "delete from product\n"
+                    + "where id = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
     
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        List<Product> listS = dao.getSearchProduct("y");
+        List<Product> listS = dao.getNewProduct();
         for (Product o : listS) {
             System.out.println(o);
         }

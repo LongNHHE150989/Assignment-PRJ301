@@ -4,6 +4,7 @@
     Author     : long4
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,9 +44,6 @@
                         <a href="product" class="nav-link">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#terms" class="nav-link">Terms</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
@@ -57,9 +55,9 @@
                     <a href="login" class="icon">
                         <i class="bx bx-user"></i>
                     </a>
-                    <div class="icon">
+                    <a href="search" class="icon">
                         <i class="bx bx-search"></i>
-                    </div>
+                    </a>
                     <div class="icon">
                         <i class="bx bx-heart"></i>
                         <span class="d-flex">0</span>
@@ -93,9 +91,9 @@
 
                     <label for="repassword">Repeat Password</label>
                     <input type="password" placeholder="Repeat Password" name="repassword" required />
-                    
+
                     <p class="text-danger">${mess}</p>
-                    
+
                     <label>
                         <input type="checkbox" checked="checked" name="remember" style="margin-bottom: 15px" />
                         Remember me
@@ -114,7 +112,7 @@
             </div>
         </div>
         <hr>
-        
+
         <!-- Footer -->
         <footer class="footer">
             <div class="row">

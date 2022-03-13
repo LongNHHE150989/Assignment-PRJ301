@@ -32,7 +32,7 @@ public class AccountDAO extends BaseDAO<Account> {
                 a.setAccID(rs.getInt("accID"));
                 a.setUsername(rs.getString("username"));
                 a.setPassword(rs.getString("password"));
-                a.setIsAdmin(rs.getInt("isAdmin"));
+                a.setIsAdmin(rs.getBoolean("isAdmin"));
                 return a;
             }
         } catch (SQLException ex) {
@@ -53,7 +53,7 @@ public class AccountDAO extends BaseDAO<Account> {
                 a.setAccID(rs.getInt("accID"));
                 a.setUsername(rs.getString("username"));
                 a.setPassword(rs.getString("password"));
-                a.setIsAdmin(rs.getInt("isAdmin"));
+                a.setIsAdmin(rs.getBoolean("isAdmin"));
                 return a;
             }
         } catch (SQLException ex) {
@@ -81,8 +81,8 @@ public class AccountDAO extends BaseDAO<Account> {
 
     public static void main(String[] args) {
         AccountDAO dao = new AccountDAO();
-        Account acc = dao.checkAccountExist("user1");
-//        for (Product o : listS) {
+        Account acc = dao.checkAccountExist("admin1");
+//        for (Account o : listS) {
         System.out.println(acc);
 //        }
     }

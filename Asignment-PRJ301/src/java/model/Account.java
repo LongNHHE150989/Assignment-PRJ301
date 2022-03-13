@@ -13,17 +13,19 @@ public class Account {
     private int accID;
     private String username;
     private String password;
-    private int isAdmin;
+    private boolean isAdmin;
 
     public Account() {
     }
 
-    public Account(int accID, String username, String password, int isAdmin) {
+    public Account(int accID, String username, String password, boolean isAdmin) {
         this.accID = accID;
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
     }
+
+    
 
     public int getAccID() {
         return accID;
@@ -49,11 +51,11 @@ public class Account {
         this.password = password;
     }
 
-    public int getIsAdmin() {
+    public boolean isIsAdmin() {
         return isAdmin;
     }
 
-    public void setIsAdmin(int isAdmin) {
+    public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
 
@@ -61,7 +63,5 @@ public class Account {
     public String toString() {
         return "Account{" + "accID=" + accID + ", username=" + username + ", password=" + password + ", isAdmin=" + isAdmin + '}';
     }
-    
-    
     
 }

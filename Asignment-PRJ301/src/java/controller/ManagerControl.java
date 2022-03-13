@@ -5,21 +5,23 @@
  */
 package controller;
 
-import dal.AccountDAO;
+import dal.CategoryDAO;
+import dal.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Account;
+import model.Category;
+import model.Product;
 
 /**
  *
  * @author long4
  */
-public class LoginControl extends HttpServlet {
+public class ManagerControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,6 +35,14 @@ public class LoginControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        ProductDAO dao= new ProductDAO();
+        List<Product> list = dao.getAllProduct();
+        CategoryDAO daoC = new CategoryDAO();
+        List<Category> listC = daoC.getAllCategory();
+        
+        request.setAttribute("listC", listC);
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("manager.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -47,7 +57,7 @@ public class LoginControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -61,20 +71,7 @@ public class LoginControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        AccountDAO dao = new AccountDAO();
-        Account a = dao.login(username, password);
-        if (a==null) {
-            request.setAttribute("mess", "Wrong User Name or Password!");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }else{
-            HttpSession session = request.getSession();
-            session.setAttribute("acc", a);
-            session.setMaxInactiveInterval(60*60*3);
-            response.sendRedirect("home");
-        }
+        processRequest(request, response);
     }
 
     /**
