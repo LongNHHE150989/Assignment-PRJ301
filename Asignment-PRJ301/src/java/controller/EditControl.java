@@ -8,18 +8,16 @@ package controller;
 import dal.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Product;
 
 /**
  *
  * @author long4
  */
-public class DeleteControl extends HttpServlet {
+public class EditControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,9 +31,18 @@ public class DeleteControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int id = Integer.parseInt(request.getParameter("pid"));
+        response.setContentType("text/html;charset=UTF-8");
+        int id =Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String image = request.getParameter("image");
+        int price =Integer.parseInt(request.getParameter("price"))  ;
+        String description = request.getParameter("description");
+        int quantity =Integer.parseInt(request.getParameter("quantity"));
+        int cateID =Integer.parseInt(request.getParameter("category"));
+        String sale = request.getParameter("sale");
+        
         ProductDAO dao= new ProductDAO();
-        dao.deleteProduct(id);
+        dao.editProduct(id, name, image, price, cateID, description, quantity, sale);
         response.sendRedirect("manager");
     }
 

@@ -20,6 +20,12 @@ public class Category {
     public Category() {
     }
 
+    public Category(int cateID, String cname) {
+        this.cateID = cateID;
+        this.cname = cname;
+    }
+    
+    
     public Category(int cateID, String cname, String cimage) {
         this.cateID = cateID;
         this.cname = cname;

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : profile
-    Created on : Mar 11, 2022, 8:31:52 PM
-    Author     : long4
+    Document   : ManagerProduct
+    Created on : Dec 28, 2020, 5:19:02 PM
+    Author     : trinh
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -11,19 +11,19 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Profile</title>
+        <title>Edit Product</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
         <link href="css/header.css" rel="stylesheet" type="text/css"/>
-        <script src="js/profile.js" type="text/javascript"></script>
+
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     </head>
-    <body>
+    <body style="color: black">
         <!-- Header -->
         <header class="header" id="header" style="min-height: 30vh">
             <!-- Top Nav -->
@@ -92,85 +92,80 @@
             </div>
 
         </header>
-        
-        <div class="container bootstrap snippet" style="margin-bottom: 50px">
 
-            <div class="row">
-                <div class="col-sm-3"><!--left col-->
-
-                    <div class="text-center">
-                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="" class="avatar img-circle img-thumbnail" alt="avatar">
-                        <h6>Upload a different photo...</h6>
-                        <input type="file" class="text-center center-block file-upload">
-                    </div></hr><br>
-
-                </div><!--/col-3-->
-                <div class="col-sm-9">
-
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="home">
-                            <form class="form" action="##" method="post" id="registrationForm">
+        <div class="container" >
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2>Edit <b>Product</b></h2>
+                        </div>
+                        <div class="col-sm-6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="editEmployeeModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="edit" method="post">
+                            <div class="modal-header">						
+                                <h4 class="modal-title">Edit Product</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">					
                                 <div class="form-group">
-
-                                    <div class="col-xs-6">
-                                        <label for="first_name"><h4>First name</h4></label>
-                                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-                                    </div>
+                                    <label>ID</label>
+                                    <input value="${product.id}" name="id" type="text" class="form-control" readonly required>
                                 </div>
                                 <div class="form-group">
-
-                                    <div class="col-xs-6">
-                                        <label for="last_name"><h4>Last name</h4></label>
-                                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-                                    </div>
+                                    <label for="name">Name</label>
+                                    <input id="name" value="${product.name}" name="name" type="text" class="form-control" required>
                                 </div>
-
                                 <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="phone"><h4>Phone</h4></label>
-                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-                                    </div>
+                                    <label for="image">Image</label>
+                                    <input id="image" value="${product.image}" name="image" type="text" class="form-control" required>
                                 </div>
-
-
                                 <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="email"><h4>Email</h4></label>
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                                    </div>
+                                    <label for="price">Price</label>
+                                    <input id="price" value="${product.price}" name="price" type="text" class="form-control" required>
                                 </div>
-
                                 <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="email"><h4>Location</h4></label>
-                                        <input type="text" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-                                    </div>
+                                    <label for="description">Description</label>
+                                    <textarea id="description" name="description" class="form-control" required>${product.description}</textarea>
                                 </div>
-
                                 <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="password"><h4>Password</h4></label>
-                                        <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                                    </div>
+                                    <label for="quantity">Quantity</label>
+                                    <input id="quantity" value="${product.quantity}" name="quantity" type="text" class="form-control" required>
                                 </div>
-
-
                                 <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <br>
-                                        <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                        <a href="logout" class="btn btn-dark btn-lg" ><i class="glyphicon glyphicon-log-out"></i> Logout</a>
-                                    </div>
+                                    <label for="category">Category</label>
+                                    <select id="category" name="category" class="form-select" aria-label="Default select example">
+                                        <c:forEach items="${listC}" var="o">
+                                            <option value="${o.cateID}" ${o.cateID==product.category.cateID?"selected":""}>${o.cname}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sale">Sale</label>
+                                    <select id="sale" name="sale" class="form-select" aria-label="Default select example">
+                                        <option value="false">False</option>
+                                        <option value="true">True</option>
+                                    </select>
                                 </div>
 
-                            </form>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-success" value="Edit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-                        </div><!--/tab-pane-->
-                    </div><!--/tab-pane-->
-                </div><!--/tab-pane-->
-            </div><!--/tab-content-->
         </div>
-        
+
+
         <hr>
 
         <footer class="footer">
@@ -200,3 +195,4 @@
         </footer>
     </body>
 </html>
+

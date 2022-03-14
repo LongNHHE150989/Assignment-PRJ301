@@ -61,8 +61,18 @@ public class ProductDAO extends BaseDAO<Product> {
 
     public Product getProduct(int id) {
         try {
-            String sql = "select * from product\n"
-                    + "where id =?";
+            String sql = "select p.ID,"
+                    + " p.name,"
+                    + " p.image,"
+                    + " p.price,"
+                    + " p.description,"
+                    + " c.cateID,"
+                    + " c.cname,"
+                    + " p.quantity,"
+                    + " p.sale \n"
+                    + " from product p inner join Category c\n"
+                    + "on p.cateID = c.cateID\n"
+                    + "where p.id =?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
@@ -73,6 +83,10 @@ public class ProductDAO extends BaseDAO<Product> {
                 a.setImage(rs.getString("image"));
                 a.setPrice(rs.getDouble("price"));
                 a.setDescription(rs.getString("description"));
+                Category cate = new Category();
+                cate.setCateID(rs.getInt("cateID"));
+                cate.setCname(rs.getString("cname"));
+                a.setCategory(cate);
                 a.setQuantity(rs.getInt("quantity"));
                 a.setSale(rs.getBoolean("sale"));
                 return a;
@@ -147,7 +161,7 @@ public class ProductDAO extends BaseDAO<Product> {
         }
         return null;
     }
-    
+
     public List<Product> getSearchProduct(String s) {
         List<Product> listS = new ArrayList<>();
         try {
@@ -164,7 +178,7 @@ public class ProductDAO extends BaseDAO<Product> {
                     + "on p.cateID = c.cateID\n"
                     + "where name like ?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, "%"+s+"%");
+            statement.setString(1, "%" + s + "%");
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 Product a = new Product();
@@ -187,6 +201,7 @@ public class ProductDAO extends BaseDAO<Product> {
         }
         return null;
     }
+
     public void deleteProduct(int id) {
         try {
             String sql = "delete from product\n"
@@ -197,12 +212,62 @@ public class ProductDAO extends BaseDAO<Product> {
         } catch (Exception e) {
         }
     }
-    
+
+    public void addProduct(String name, String image, int price, int cateID, String description, int quantity, String sale) {
+        try {
+            String sql = "INSERT INTO [Assignment_PRJ].[dbo].[product]\n"
+                    + "           ([name]\n"
+                    + "           ,[image]\n"
+                    + "           ,[price]\n"
+                    + "           ,[cateID]\n"
+                    + "           ,[description]\n"
+                    + "           ,[quantity]\n"
+                    + "           ,[sale])\n"
+                    + "     VALUES(?,?,?,?,?,?,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setString(2, image);
+            statement.setInt(3, price);
+            statement.setInt(4, cateID);
+            statement.setString(5, description);
+            statement.setInt(6, quantity);
+            statement.setString(7, sale);
+            statement.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void editProduct(String name, String image, int price, int cateID, String description, int quantity, String sale, int id) {
+        try {
+            String sql = "UPDATE [Assignment_PRJ].[dbo].[product]\n"
+                    + "   SET [name] = ?\n"
+                    + "      ,[image] = ?\n"
+                    + "      ,[price] = ?\n"
+                    + "      ,[cateID] = ?\n"
+                    + "      ,[description] = ?\n"
+                    + "      ,[quantity] = ?\n"
+                    + "      ,[sale] = ?\n"
+                    + " WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setString(2, image);
+            statement.setInt(3, price);
+            statement.setInt(4, cateID);
+            statement.setString(5, description);
+            statement.setInt(6, quantity);
+            statement.setString(7, sale);
+            statement.setInt(8, id);
+            statement.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        List<Product> listS = dao.getNewProduct();
-        for (Product o : listS) {
-            System.out.println(o);
-        }
+        Product o = dao.getProduct(1);
+//        List<Product> listS = dao.getNewProduct();
+//        for (Product o : listS) {
+        System.out.println(o);
+//        }
     }
 }

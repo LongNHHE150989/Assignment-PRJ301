@@ -19,7 +19,7 @@ import model.Product;
  *
  * @author long4
  */
-public class DeleteControl extends HttpServlet {
+public class AddControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,9 +33,16 @@ public class DeleteControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int id = Integer.parseInt(request.getParameter("pid"));
+        String name = request.getParameter("name");
+        String image = request.getParameter("image");
+        int price =Integer.parseInt(request.getParameter("price"))  ;
+        String description = request.getParameter("description");
+        int quantity =Integer.parseInt(request.getParameter("quantity"));
+        int cateID =Integer.parseInt(request.getParameter("category"));
+        String sale = request.getParameter("sale");
+        
         ProductDAO dao= new ProductDAO();
-        dao.deleteProduct(id);
+        dao.addProduct(name, image, price, cateID, description, quantity, sale);
         response.sendRedirect("manager");
     }
 

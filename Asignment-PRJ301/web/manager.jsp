@@ -119,20 +119,22 @@
                                 <th style="width: 90px">Actions</th>
                             </tr>
                         </thead>
+                        <c:set var="i" value="0"></c:set>
                         <c:forEach items="${list}" var="o">
                             <tbody>
                                 <tr>
-                                    <th>1</th>
+                                    <th>${i=i+1}</th>
                                     <td>${o.name}</td>
-                                    <td>${o.image}</td>
+                                    <td><img src="${o.image}" style="width:180px"/></td> 
                                     <td>${o.price}</td>
                                     <td>${o.description}</td>
                                     <td>${o.category.cname}</td>
                                     <td>${o.quantity}</td>
                                     <td>${o.sale}</td>
                                     <td>
-                                        <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a href="delete?id=${o.id}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                        <!--<a href="#addEmployeeModal"  class="btn btn-info add-new" data-toggle="modal" ><i class="fa fa-plus"></i> <span>Add New</span></a>-->
+                                        <a href="loadProduct?pid=${o.id}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                        <a href="delete?pid=${o.id}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -177,16 +179,15 @@
                                 <label for="category">Category</label>
                                 <select id="category" name="category" class="form-select" aria-label="Default select example">
                                     <c:forEach items="${listC}" var="o">
-                                        <option value="${o.cid}">${o.cname}</option>
+                                        <option value="${o.cateID}">${o.cname}</option>
                                     </c:forEach>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="sale">Sale</label>
                                 <select id="sale" name="sale" class="form-select" aria-label="Default select example">
-                                    <c:forEach items="${listC}" var="o">
-                                        <option value="${o.sale}">${o.sale}</option>
-                                    </c:forEach>
+                                        <option value="false">False</option>
+                                        <option value="true">True</option>
                                 </select>
                             </div>
 
