@@ -42,7 +42,7 @@ public class EditControl extends HttpServlet {
         String sale = request.getParameter("sale");
         
         ProductDAO dao= new ProductDAO();
-        dao.editProduct(id, name, image, price, cateID, description, quantity, sale);
+        dao.editProduct(name, image, price, cateID, description, quantity, sale, id);
         response.sendRedirect("manager");
     }
 

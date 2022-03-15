@@ -264,10 +264,10 @@ public class ProductDAO extends BaseDAO<Product> {
 
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        Product o = dao.getProduct(1);
+        dao.editProduct("c", "c", 7, 2, "c", 100, "false", 23); ;
 //        List<Product> listS = dao.getNewProduct();
 //        for (Product o : listS) {
-        System.out.println(o);
+//        System.out.println(o);
 //        }
     }
 }
