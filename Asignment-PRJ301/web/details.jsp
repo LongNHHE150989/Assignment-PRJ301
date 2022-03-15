@@ -66,9 +66,9 @@
                         <i class="bx bx-heart"></i>
                         <span class="d-flex">0</span>
                     </div>
-                    <a href="cart.html" class="icon">
+                    <a href="carts" class="icon">
                         <i class="bx bx-cart"></i>
-                        <span class="d-flex">0</span>
+                        <span class="d-flex">${sessionScope.carts.size()}</span>
                     </a>
                 </div>
 
@@ -87,13 +87,12 @@
                     </div>
                 </div>
                 <div class="right">
-                    <span>Home/Earrings</span>
+                    <span>HOME / ${requestScope.product.getCategory().getCname()}</span>
                     <h1>${requestScope.product.name}</h1>
                     <div class="price">$${requestScope.product.price}</div>
 
                     <form class="form">
-                        <input type="text" placeholder="1" />
-                        <a href="cart.html" class="addCart">Add To Cart</a>
+                        <a href="addtocart?pid=${requestScope.product.id}" class="addCart">Add To Cart</a>
                     </form>
                     <h3>Product Detail</h3>
                     <p>
@@ -182,7 +181,7 @@
                 </div>
             </div>
         </section>
-        <hr
+        <hr>
             <!-- Footer -->
             <footer class="footer">
             <div class="row">

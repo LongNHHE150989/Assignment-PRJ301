@@ -111,7 +111,7 @@ public class ProductDAO extends BaseDAO<Product> {
                     + " p.sale \n"
                     + " from product p inner join Category c\n"
                     + "on p.cateID = c.cateID\n"
-                    + "where id<=8";
+                    + "where id<=4";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {

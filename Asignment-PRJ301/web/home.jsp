@@ -80,9 +80,9 @@
                             <i class="bx bx-heart"></i>
                             <span class="d-flex">0</span>
                         </a>
-                        <a href="cart.html" class="icon">
+                        <a href="carts" class="icon">
                             <i class="bx bx-cart"></i>
-                            <span class="d-flex">0</span>
+                            <span class="d-flex">${sessionScope.carts.size()}</span>
                         </a>
                     </div>
 
@@ -157,9 +157,9 @@
                             <h4>$${o.price}</h4>
                         </div>
                         <ul class="icons">
-                            <li><i class="bx bx-heart"></i></li>
-                            <li><i class="bx bx-search"></i></li>
-                            <li><i class="bx bx-cart"></i></li>
+                            <li><a style="color: black"><i class="bx bx-heart" ></i></a></li>
+                            <li><a href="search" style="color: black"><i class="bx bx-search"></i></a></li>
+                            <li><a href="addtocart?pid=${o.id}" style="color: black"><i class="bx bx-cart"></i></a></li>
                         </ul>
                     </div>
                 </c:forEach>
@@ -172,7 +172,7 @@
         <section class="section banner">
             <div class="left">
                 <span class="trend">Trend Design</span>
-                <h1>New Collection 2021</h1>
+                <h1>New Collection 2022</h1>
                 <p>New Arrival <span class="color">Sale 50% OFF</span> Limited Time Offer</p>
                 <a href="product" class="btn btn-1">Discover Now</a>
             </div>
@@ -223,7 +223,7 @@
             <div class="popup-right">
               <div class="right-content">
                 <h1>Get Discount <span>50%</span> Off</h1>
-                <p>Sign up to our newsletter and save 30% for you next purchase. No spam, we promise!
+                <p>Sign up to our newsletter and save 50% for you next purchase. No spam, we promise!
                 </p>
                 <form action="#">
                   <input type="email" placeholder="Enter your email..." class="popup-form">

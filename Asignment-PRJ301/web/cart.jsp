@@ -1,6 +1,6 @@
 <%-- 
-    Document   : product
-    Created on : Mar 8, 2022, 10:32:56 PM
+    Document   : cart
+    Created on : Mar 15, 2022, 10:35:10 PM
     Author     : long4
 --%>
 
@@ -12,15 +12,15 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- Box icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
             />
         <!-- Custom StyleSheet -->
         <link rel="stylesheet" href="./css/styles.css" />
-        <title>ALL ${cate.cname}${search} PRODUCTS</title>
+        <title>Your Cart</title>
     </head>
-
     <body>
         <!-- Navigation -->
         <div class="top-nav">
@@ -58,23 +58,19 @@
                 </ul>
 
                 <div class="icons d-flex">
-                    <a <c:choose>
-                            <c:when test="${sessionScope.acc==null}">href="login"</c:when>
-                            <c:otherwise>href="profile.jsp"</c:otherwise>
-                        </c:choose> 
-                        class="icon">
+                    <a href="login" class="icon">
                         <i class="bx bx-user"></i>
                     </a>
-                    <a href="search" class="icon">
+                    <div class="icon">
                         <i class="bx bx-search"></i>
-                    </a>
+                    </div>
                     <div class="icon">
                         <i class="bx bx-heart"></i>
                         <span class="d-flex">0</span>
                     </div>
                     <a href="carts" class="icon">
                         <i class="bx bx-cart"></i>
-                        <span class="d-flex">${sessionScope.carts.size()}</span>
+                        <span class="d-flex">0</span>
                     </a>
                 </div>
 
@@ -84,38 +80,57 @@
             </div>
         </div>
 
-        <!-- All Products -->
-        <section class="section all-products" id="products">
-            <div class="top container">
-                <h1>ALL ${cate.cname}${search} PRODUCTS</h1>
-            </div>
-            <div class="product-center container">
-                <c:forEach items="${list}" var="o">
-                    <div class="product-item">
-                        <div class="overlay">
-                            <a href="" class="product-thumb">
-                                <img src="${o.image}" alt="" />
-                            </a>
-                            <c:if test="${o.sale}">
-                                <span class="discount">50%</span>
-                            </c:if>
-                        </div>
-                        <div class="product-info">
-                            <span>${o.category.cname}</span>
-                            <a href="details?pid=${o.id}">${o.name}</a>
-                            <h4>$${o.price}</h4>
-                        </div>
-                        <ul class="icons">
-                            <li><a style="color: black"><i class="bx bx-heart" ></i></a></li>
-                            <li><a href="search" style="color: black"><i class="bx bx-search"></i></a></li>
-                            <li><a href="addtocart?pid=${o.id}" style="color: black"><i class="bx bx-cart"></i></a></li>
-                        </ul>
-                    </div>
-                </c:forEach>
+        <!-- Cart Items -->
+        <div class="container cart" style="min-height: 500px">
+            <c:choose>
+                <c:when test="${sessionScope.carts.size()==null || sessionScope.carts.size()==0}">
+                    <h1>List Cart is Empty</h1>
+                </c:when>
+                <c:otherwise>
+                    <h1>List Product</h1>
+                    <table>
+                        <tr>
+                            <th style="color: black">Product</th>
+                            <th style="color: black">Quantity</th>
+                            <th style="color: black">Total Price</th>
+                        </tr>
+                        <c:forEach items="${carts}" var="o">
+                            <form action="updatequantity">
+                                <tr>
+                                <input type="hidden" name="pid" value="${o.value.product.id}"/>
+                                    <td>
+                                        <div class="cart-info">
+                                            <img src="${o.value.product.image}" alt="" />
+                                            <div>
+                                                <p>Product ID:${o.value.product.id}</p>
+                                                <p>${o.value.product.name}</p>
+                                                <span>Price: ${o.value.product.price}</span> <br />
+                                                <a href="deletecart?pid=${o.value.product.id}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><input onchange="this.form.submit()" type="number" name="quantity" value="${o.value.quantity}" min="1" /></td>
+                                    <td>$${o.value.product.price*o.value.quantity}</td>
+                                </tr>
+                            </form>
 
-            </div>
-        </section>
+                        </c:forEach>
+
+                    </table>
+                    <div class="total-price">
+                        <table>
+                            <tr>
+                                <td>Total</td>
+                                <td>$${totalMoney}</td>
+                            </tr>
+                        </table>
+                        <a href="#" class="checkout btn" style="color: black">Proceed To Checkout</a>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+        </div>
         <hr>
+
         <!-- Footer -->
         <footer class="footer">
             <div class="row">
@@ -142,6 +157,7 @@
                 </div>
             </div>
         </footer>
+
         <!-- Custom Script -->
         <script src="./js/index.js"></script>
     </body>

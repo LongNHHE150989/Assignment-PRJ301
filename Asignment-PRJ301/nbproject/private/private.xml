@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/src/java/controller/EditControl.java</file>
-            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/web/Edit.jsp</file>
-            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/src/java/dal/ProductDAO.java</file>
-            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/web/manager.jsp</file>
+            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/web/home.jsp</file>
+            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/web/cart.jsp</file>
+            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/web/details.jsp</file>
+            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/src/java/controller/UpdateCartQuantityControl.java</file>
+            <file>file:/C:/Users/long4/OneDrive/Documents/NetBeansProjects/Assignment-PRJ301/Asignment-PRJ301/src/java/controller/DeleteCartControl.java</file>
         </group>
     </open-files>
 </project-private>

@@ -5,25 +5,24 @@
  */
 package controller;
 
-import dal.CategoryDAO;
 import dal.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Category;
+import model.Cart;
 import model.Product;
 
 /**
  *
  * @author long4
  */
-@WebServlet(name = "DetailsControl", urlPatterns = {"/details"})
-public class DetailsControl extends HttpServlet {
+public class AddToCartControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,18 +36,29 @@ public class DetailsControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet DetailsControl</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet DetailsControl at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        int id = Integer.parseInt(request.getParameter("pid"));
+        HttpSession session = request.getSession();
+        Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
+        if (carts == null) {
+            carts = new LinkedHashMap<>();
         }
+        
+        if(carts.containsKey(id)){// san pham da co tren gio hang
+            int oldQuantity = carts.get(id).getQuantity();
+            carts.get(id).setQuantity(oldQuantity+1);
+        }else{
+            Product product = new ProductDAO().getProduct(id);
+            Cart cart = new Cart(product, 1);
+            carts.put(id, cart);
+        }
+        session.setAttribute("carts", carts);
+        System.out.println(carts);
+        String UrlHistory = (String)session.getAttribute("UrlHistory");
+        if (UrlHistory == null) {
+            UrlHistory = "home";
+        } 
+        response.sendRedirect(UrlHistory);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -63,15 +73,7 @@ public class DetailsControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String pid = request.getParameter("pid");
-        ProductDAO dao = new ProductDAO();
-        Product p = dao.getProduct(Integer.parseInt(pid));
-        
-        HttpSession session = request.getSession();
-        session.setAttribute("UrlHistory", "details?pid="+pid);
-        session.setMaxInactiveInterval(60*60*3);
-        request.setAttribute("product", p);
-        request.getRequestDispatcher("details.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**

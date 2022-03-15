@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Category;
 import model.Product;
 
@@ -43,6 +44,9 @@ public class HomeControl extends HttpServlet {
         CategoryDAO Cdao= new CategoryDAO();
         List<Category> listC = Cdao.getAllCategory();
         
+        HttpSession session = request.getSession();
+        session.setAttribute("UrlHistory", "home");
+        session.setMaxInactiveInterval(60*60*3);
         request.setAttribute("listC", listC);
         request.setAttribute("listnew", listnew);
         request.getRequestDispatcher("home.jsp").forward(request, response);

@@ -82,7 +82,7 @@
                         </a>
                         <a href="cart.html" class="icon">
                             <i class="bx bx-cart"></i>
-                            <span class="d-flex">0</span>
+                            <span class="d-flex">${sessionScope.carts.size()}</span>
                         </a>
                     </div>
 

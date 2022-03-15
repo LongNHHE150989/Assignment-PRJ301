@@ -79,9 +79,9 @@
                             <i class="bx bx-heart"></i>
                             <span class="d-flex">0</span>
                         </a>
-                        <a href="cart.html" class="icon">
+                        <a href="carts" class="icon">
                             <i class="bx bx-cart"></i>
-                            <span class="d-flex">0</span>
+                            <span class="d-flex">${sessionScope.carts.size()}</span>
                         </a>
                     </div>
 
