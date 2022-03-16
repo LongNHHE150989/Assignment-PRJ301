@@ -262,12 +262,63 @@ public class ProductDAO extends BaseDAO<Product> {
         }
     }
 
+    public List<Product> getProductWithPagging(int page, int PAGE_SIZE) {
+        List<Product> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM\n"
+                    + "(SELECT  p.id, p.name, p.image, p.price, p.description, c.cateID, c.cname, p.quantity, p.sale, ROW_NUMBER() OVER (ORDER BY p.id ASC) AS ROWNUM\n"
+                    + "FROM product p LEFT JOIN Category c\n"
+                    + "ON p.cateID = c.cateID)t\n"
+                    + "WHERE ROWNUM >= (? - 1)*? + 1 AND ROWNUM <= ? * ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, page);
+            statement.setInt(2, PAGE_SIZE);
+            statement.setInt(3, page);
+            statement.setInt(4, PAGE_SIZE);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Product a = new Product();
+                a.setId(rs.getInt("id"));
+                a.setName(rs.getString("name"));
+                a.setImage(rs.getString("image"));
+                a.setPrice(rs.getDouble("price"));
+                a.setDescription(rs.getString("description"));
+                Category cate = new Category();
+                cate.setCateID(rs.getInt("cateID"));
+                cate.setCname(rs.getString("cname"));
+                a.setQuantity(rs.getInt("quantity"));
+                a.setSale(rs.getBoolean("sale"));
+                a.setCategory(cate);
+                list.add(a);
+            }
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
+    }
+    
+    public int getTotalProduct(){
+        try {
+            String sql = "select COUNT(id) from product";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        dao.editProduct("c", "c", 7, 2, "c", 100, "false", 23); ;
-//        List<Product> listS = dao.getNewProduct();
+        int o = dao.getTotalProduct();
+//        List<Product> listS = dao.getProductWithPagging(1, 4);
 //        for (Product o : listS) {
-//        System.out.println(o);
+            System.out.println(o);
 //        }
     }
+
 }

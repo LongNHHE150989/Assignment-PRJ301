@@ -70,7 +70,7 @@
                     </div>
                     <a href="carts" class="icon">
                         <i class="bx bx-cart"></i>
-                        <span class="d-flex">0</span>
+                        <span class="d-flex">${sessionScope.carts.size()}</span>
                     </a>
                 </div>
 
@@ -124,7 +124,7 @@
                                 <td>$${totalMoney}</td>
                             </tr>
                         </table>
-                        <a href="#" class="checkout btn" style="color: black">Proceed To Checkout</a>
+                        <a href="checkout" class="checkout btn" style="color: black">Proceed To Checkout</a>
                     </div>
                 </c:otherwise>
             </c:choose>

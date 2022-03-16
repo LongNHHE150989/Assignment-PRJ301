@@ -1,6 +1,6 @@
 <%-- 
-    Document   : product
-    Created on : Mar 8, 2022, 10:32:56 PM
+    Document   : cart
+    Created on : Mar 15, 2022, 10:35:10 PM
     Author     : long4
 --%>
 
@@ -12,14 +12,16 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- Box icons -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"/>
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+            />
         <!-- Custom StyleSheet -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="./css/styles.css" />
-        <title>ALL ${cate.cname}${search} PRODUCTS</title>
+        <title>Checkout</title>
     </head>
-
     <body>
         <!-- Navigation -->
         <div class="top-nav">
@@ -57,16 +59,12 @@
                 </ul>
 
                 <div class="icons d-flex">
-                    <a <c:choose>
-                            <c:when test="${sessionScope.acc==null}">href="login"</c:when>
-                            <c:otherwise>href="profile.jsp"</c:otherwise>
-                        </c:choose> 
-                        class="icon">
+                    <a href="login" class="icon">
                         <i class="bx bx-user"></i>
                     </a>
-                    <a href="search" class="icon">
+                    <div class="icon">
                         <i class="bx bx-search"></i>
-                    </a>
+                    </div>
                     <div class="icon">
                         <i class="bx bx-heart"></i>
                         <span class="d-flex">0</span>
@@ -82,48 +80,19 @@
                 </div>
             </div>
         </div>
+        <div class="container" style="min-height: 500px">
+            <div class="alert alert-warning  text-center mt-5" role="alert" style="font-size: 40px">
+                Order successfully, Thank you for your purchase...
+                <div class="text-center" style="padding-top: 20px">
+                    <a href="home" class="btn btn-outline-success" style="font-size: 15px">Continue Shopping</a>
+                </div>
 
-        <!-- All Products -->
-        <section class="section all-products" id="products">
-            <div class="top container">
-                <h1>ALL ${cate.cname}${search} PRODUCTS</h1>
-            </div>
-            <div class="product-center container">
-                <c:forEach items="${list}" var="o">
-                    <div class="product-item">
-                        <div class="overlay">
-                            <a href="" class="product-thumb">
-                                <img src="${o.image}" alt="" />
-                            </a>
-                            <c:if test="${o.sale}">
-                                <span class="discount">50%</span>
-                            </c:if>
-                        </div>
-                        <div class="product-info">
-                            <span>${o.category.cname}</span>
-                            <a href="details?pid=${o.id}">${o.name}</a>
-                            <h4>$${o.price}</h4>
-                        </div>
-                        <ul class="icons">
-                            <li><a style="color: black"><i class="bx bx-heart" ></i></a></li>
-                            <li><a href="search" style="color: black"><i class="bx bx-search"></i></a></li>
-                            <li><a href="addtocart?pid=${o.id}" style="color: black"><i class="bx bx-cart"></i></a></li>
-                        </ul>
-                    </div>
-                </c:forEach>
+            </div> 
+        </div>
 
-            </div>
-            <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                <ul class="pagination">
-                    <li class="page-item"><a class="btn btn-outline-warning" href="product?page=${page-1}" style="font-size: 15px; border-radius:0px">Previous</a></li>
-                        <c:forEach begin="1" end="${totalPage}" var="i">
-                        <li class="page-item "><a class="btn btn-${i != page?"outline-":""}warning" href="product?page=${i}" style="font-size: 15px; border-radius:0px">${i}</a></li>
-                        </c:forEach>
-                    <li class="page-item"><a class="btn btn-outline-warning" href="product?page=${page+1}" style="font-size: 15px; border-radius:0px">Next</a></li>
-                </ul>
-            </nav>
-        </section>
+
         <hr>
+
         <!-- Footer -->
         <footer class="footer">
             <div class="row">
@@ -150,6 +119,7 @@
                 </div>
             </div>
         </footer>
+
         <!-- Custom Script -->
         <script src="./js/index.js"></script>
     </body>

@@ -5,12 +5,22 @@
  */
 package controller;
 
+import dal.OrderDAO;
+import dal.OrderDetailDAO;
+import dal.ShippingDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Account;
+import model.Cart;
+import model.OrderDetail;
+import model.Shipping;
 
 /**
  *
@@ -30,6 +40,22 @@ public class CheckoutControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();
+        Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
+        if (carts == null) {
+            carts = new LinkedHashMap<>();
+        }
+        double totalMoney = 0;
+        for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
+            Integer id = entry.getKey();
+            Cart cart = entry.getValue();
+
+            totalMoney += cart.getQuantity() * cart.getProduct().getPrice();
+        }
+
+        request.setAttribute("totalMoney", totalMoney);
         request.getRequestDispatcher("checkout.jsp").forward(request, response);
     }
 
@@ -59,7 +85,46 @@ public class CheckoutControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        String note = request.getParameter("note");
+
+        //luu vao database
+        // luu vao shipping
+        ShippingDAO dao = new ShippingDAO();
+        int shippingID = dao.insertShippingRetrunID(name, phone, address);
+
+        //luu vao order
+        HttpSession session = request.getSession();
+        Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
+        if (carts == null) {
+            carts = new LinkedHashMap<>();
+        }
+        double totalPrice = 0;
+        for (Map.Entry<Integer, Cart> entry : carts.entrySet()) {
+            Integer id = entry.getKey();
+            Cart cart = entry.getValue();
+
+            totalPrice += cart.getQuantity() * cart.getProduct().getPrice();
+        }
+        int accID=13;
+        Account account = (Account) request.getSession().getAttribute("acc");
+        if (account!=null) {
+            accID = account.getAccID();
+        } 
+        
+        OrderDAO daoO = new OrderDAO();
+        int orderId = daoO.insertOrdersRetrunID(accID, totalPrice, note, shippingID);
+        
+        //luu vao orderdetail
+        
+        new OrderDetailDAO().saveCart(orderId, carts);
+        
+        session.removeAttribute("carts");
+        response.sendRedirect("thanks");
     }
 
     /**

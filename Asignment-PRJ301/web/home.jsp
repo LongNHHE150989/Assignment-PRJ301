@@ -144,7 +144,7 @@
                 <c:forEach items="${listnew}" var="o">
                     <div class="product-item">
                         <div class="overlay">
-                            <a href="" class="product-thumb">
+                            <a href="details?pid=${o.id}" class="product-thumb">
                                 <img src="${o.image}" alt="" />
                                 <c:if test="${o.sale}">
                                     <span class="discount">50%</span>
@@ -238,5 +238,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
     <script src="./js/slider.js"></script>
     <script src="./js/index.js"></script>
-
+    
 </html>
