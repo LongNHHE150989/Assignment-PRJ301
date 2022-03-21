@@ -59,7 +59,11 @@
                 </ul>
 
                 <div class="icons d-flex">
-                    <a href="login" class="icon">
+                    <a <c:choose>
+                            <c:when test="${sessionScope.acc==null}">href="login"</c:when>
+                            <c:otherwise>href="profile"</c:otherwise>
+                        </c:choose> 
+                        class="icon">
                         <i class="bx bx-user"></i>
                     </a>
                     <div class="icon">

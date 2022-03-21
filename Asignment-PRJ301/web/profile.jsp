@@ -68,7 +68,7 @@
                     <div class="icons d-flex">
                         <a <c:choose>
                                 <c:when test="${sessionScope.acc==null}">href="login"</c:when>
-                                <c:otherwise>href="profile.jsp"</c:otherwise>
+                                <c:otherwise>href="profile"</c:otherwise>
                             </c:choose> 
                             class="icon">
                             <i class="bx bx-user"></i>
@@ -93,16 +93,12 @@
             </div>
 
         </header>
-        
-        <div class="container bootstrap snippet" style="margin-bottom: 50px">
 
+        <div class="container bootstrap snippet" style="margin-bottom: 50px">
             <div class="row">
                 <div class="col-sm-3"><!--left col-->
-
                     <div class="text-center">
-                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" style="" class="avatar img-circle img-thumbnail" alt="avatar">
-                        <h6>Upload a different photo...</h6>
-                        <input type="file" class="text-center center-block file-upload">
+                        <img src="${cus.cimage}" style="" class="avatar img-circle img-thumbnail" alt="avatar">
                     </div></hr><br>
 
                 </div><!--/col-3-->
@@ -110,51 +106,40 @@
 
                     <div class="tab-content">
                         <div class="tab-pane active" id="home">
-                            <form class="form" action="##" method="post" id="registrationForm">
+                            <form class="form" action="##" method="post" id="registrationForm" style="color: black">
                                 <div class="form-group">
-
                                     <div class="col-xs-6">
-                                        <label for="first_name"><h4>First name</h4></label>
-                                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                                        <h4>First name</h4>
+                                        <a class="form-control">${cus.firstname}</a>
                                     </div>
                                 </div>
                                 <div class="form-group">
-
                                     <div class="col-xs-6">
-                                        <label for="last_name"><h4>Last name</h4></label>
-                                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="phone"><h4>Phone</h4></label>
-                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="email"><h4>Email</h4></label>
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                                        <h4>Last name</h4>
+                                        <a class="form-control">${cus.lastname}</a>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-xs-6">
-                                        <label for="email"><h4>Location</h4></label>
-                                        <input type="text" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                                        <h4>Phone</h4>
+                                        <a class="form-control">${cus.phone}</a>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-xs-6">
-                                        <label for="password"><h4>Password</h4></label>
-                                        <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                                        <h4>Email</h4>
+                                        <a class="form-control">${cus.email}</a>
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <h4>Address</h4>
+                                        <a class="form-control">${cus.address}</a>
+                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                     <div class="col-xs-12">
@@ -171,7 +156,7 @@
                 </div><!--/tab-pane-->
             </div><!--/tab-content-->
         </div>
-        
+
         <hr>
 
         <footer class="footer">

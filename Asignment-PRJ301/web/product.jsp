@@ -59,7 +59,7 @@
                 <div class="icons d-flex">
                     <a <c:choose>
                             <c:when test="${sessionScope.acc==null}">href="login"</c:when>
-                            <c:otherwise>href="profile.jsp"</c:otherwise>
+                            <c:otherwise>href="profile"</c:otherwise>
                         </c:choose> 
                         class="icon">
                         <i class="bx bx-user"></i>
@@ -115,11 +115,9 @@
             </div>
             <nav aria-label="Page navigation example" class="d-flex justify-content-center">
                 <ul class="pagination">
-                    <li class="page-item"><a class="btn btn-outline-warning" href="product?page=${page-1}" style="font-size: 15px; border-radius:0px">Previous</a></li>
                         <c:forEach begin="1" end="${totalPage}" var="i">
                         <li class="page-item "><a class="btn btn-${i != page?"outline-":""}warning" href="product?page=${i}" style="font-size: 15px; border-radius:0px">${i}</a></li>
                         </c:forEach>
-                    <li class="page-item"><a class="btn btn-outline-warning" href="product?page=${page+1}" style="font-size: 15px; border-radius:0px">Next</a></li>
                 </ul>
             </nav>
         </section>

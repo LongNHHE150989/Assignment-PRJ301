@@ -58,7 +58,11 @@
                 </ul>
 
                 <div class="icons d-flex">
-                    <a href="login" class="icon">
+                    <a <c:choose>
+                            <c:when test="${sessionScope.acc==null}">href="login"</c:when>
+                            <c:otherwise>href="profile"</c:otherwise>
+                        </c:choose> 
+                        class="icon">
                         <i class="bx bx-user"></i>
                     </a>
                     <div class="icon">
@@ -98,19 +102,19 @@
                             <form action="updatequantity">
                                 <tr>
                                 <input type="hidden" name="pid" value="${o.value.product.id}"/>
-                                    <td>
-                                        <div class="cart-info">
-                                            <img src="${o.value.product.image}" alt="" />
-                                            <div>
-                                                <p>Product ID:${o.value.product.id}</p>
-                                                <p>${o.value.product.name}</p>
-                                                <span>Price: ${o.value.product.price}</span> <br />
-                                                <a href="deletecart?pid=${o.value.product.id}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                            </div>
+                                <td>
+                                    <div class="cart-info">
+                                        <img src="${o.value.product.image}" alt="" />
+                                        <div>
+                                            <p>Product ID:${o.value.product.id}</p>
+                                            <p>${o.value.product.name}</p>
+                                            <span>Price: ${o.value.product.price}</span> <br />
+                                            <a href="deletecart?pid=${o.value.product.id}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                         </div>
-                                    </td>
-                                    <td><input onchange="this.form.submit()" type="number" name="quantity" value="${o.value.quantity}" min="1" /></td>
-                                    <td>$${o.value.product.price*o.value.quantity}</td>
+                                    </div>
+                                </td>
+                                <td><input onchange="this.form.submit()" type="number" name="quantity" value="${o.value.quantity}" min="1" /></td>
+                                <td>$${o.value.product.price*o.value.quantity}</td>
                                 </tr>
                             </form>
 
