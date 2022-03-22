@@ -53,7 +53,7 @@
                         </li>
                         <c:if test="${sessionScope.acc.isAdmin}">
                             <li class="nav-item">
-                                <a href="manager product.jsp" class="nav-link">Manager Product</a>
+                                <a href="manager" class="nav-link">Manager Product</a>
                             </li>
                         </c:if>
 
@@ -106,38 +106,38 @@
 
                     <div class="tab-content">
                         <div class="tab-pane active" id="home">
-                            <form class="form" action="##" method="post" id="registrationForm" style="color: black">
+                            <form class="form" action="##" method="post" id="registrationForm">
                                 <div class="form-group">
                                     <div class="col-xs-6">
                                         <h4>First name</h4>
-                                        <a class="form-control">${cus.firstname}</a>
+                                        <a class="form-control" style="color: black">${cus.firstname}</a>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-xs-6">
                                         <h4>Last name</h4>
-                                        <a class="form-control">${cus.lastname}</a>
+                                        <a class="form-control" style="color: black">${cus.lastname}</a>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-xs-6">
                                         <h4>Phone</h4>
-                                        <a class="form-control">${cus.phone}</a>
+                                        <a class="form-control" style="color: black">${cus.phone}</a>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-xs-6">
                                         <h4>Email</h4>
-                                        <a class="form-control">${cus.email}</a>
+                                        <a class="form-control" style="color: black">${cus.email}</a>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-xs-6">
                                         <h4>Address</h4>
-                                        <a class="form-control">${cus.address}</a>
+                                        <a class="form-control" style="color: black">${cus.address}</a>
                                     </div>
                                 </div>
 
