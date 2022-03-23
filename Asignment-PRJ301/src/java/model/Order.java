@@ -16,17 +16,19 @@ public class Order {
     private String note;
     private String createdDate;
     private int shippingID;
+    private int statusID;
 
     public Order() {
     }
 
-    public Order(int id, int accountId, double totalPrice, String note, String createdDate, int shippingID) {
+    public Order(int id, int accountId, double totalPrice, String note, String createdDate, int shippingID, int statusID) {
         this.id = id;
         this.accountId = accountId;
         this.totalPrice = totalPrice;
         this.note = note;
         this.createdDate = createdDate;
         this.shippingID = shippingID;
+        this.statusID = statusID;
     }
 
     public int getId() {
@@ -77,10 +79,20 @@ public class Order {
         this.shippingID = shippingID;
     }
 
+    public int getStatusID() {
+        return statusID;
+    }
+
+    public void setStatusID(int statusID) {
+        this.statusID = statusID;
+    }
+
     @Override
     public String toString() {
-        return "Order{" + "id=" + id + ", accountId=" + accountId + ", totalPrice=" + totalPrice + ", note=" + note + ", createdDate=" + createdDate + ", shippingID=" + shippingID + '}';
+        return "Order{" + "id=" + id + ", accountId=" + accountId + ", totalPrice=" + totalPrice + ", note=" + note + ", createdDate=" + createdDate + ", shippingID=" + shippingID + ", statusID=" + statusID + '}';
     }
+    
+    
     
     
 }

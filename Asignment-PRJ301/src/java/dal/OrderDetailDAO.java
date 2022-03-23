@@ -38,6 +38,14 @@ public class OrderDetailDAO extends BaseDAO<OrderDetail> {
                 statement.setDouble(5, cart.getQuantity());
                 statement.executeUpdate();
             }
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void getAllOrderDetails() {
+        try {
+            String sql = "";
             
         } catch (Exception e) {
         }

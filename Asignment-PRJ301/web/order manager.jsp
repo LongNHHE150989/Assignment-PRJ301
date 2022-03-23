@@ -11,7 +11,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Manager Product</title>
+        <title>Manager Order</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -99,55 +99,62 @@
                 <div class="table-wrapper">
                     <div class="table-title">
                         <div class="row">
-                            <div class="col-sm-8"><h2 style="color: white"><b style="">Manager Product</b></h2></div>
+                            <div class="col-sm-8"><h2 style="color: white"><b style="">Manager Order</b></h2></div>
                             <div class="col-sm-4">
                                 <a href="#addEmployeeModal"  class="btn btn-info add-new" data-toggle="modal" ><i class="fa fa-plus"></i> <span>Add New</span></a>
                             </div>
                         </div>
                     </div>
+
                     <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th style="width: 50px">STT</th>
-                                <th>Name</th>
-                                <th style="width: 200px">Image</th>
-                                <th style="width: 70px">Price</th>
-                                <th>Description</th>
-                                <th>Category</th>
-                                <th style="width: 100px">Quantity</th>
-                                <th style="width: 50px">Sale</th>
-                                <th style="width: 90px">Actions</th>
+                        <c:set var="i" value="0"></c:set>    
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Account ID: </th>
+                                    <th colspan="2">Order ID: </th>
+                                    <th colspan="2">Order Date: </th>
+                                    <th style="width: 40px">Actions</th>
+                                </tr>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Name</th>
+                                    <th>Image</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total Price</th>
                             </tr>
                         </thead>
-                        <c:set var="i" value="0"></c:set>
-                        <c:forEach items="${list}" var="o">
-                            <tbody>
-                                <tr>
-                                    <th>${i=i+1}</th>
-                                    <td>${o.name}</td>
-                                    <td><img src="${o.image}" style="width:180px"/></td> 
-                                    <td>${o.price}</td>
-                                    <td>${o.description}</td>
-                                    <td>${o.category.cname}</td>
-                                    <td>${o.quantity}</td>
-                                    <td>${o.sale}</td>
-                                    <td>
-                                        <a href="loadProduct?pid=${o.id}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        <a onclick="doDelete(${o.id},'${o.name}')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                    </td>
-                                </tr>
-                            <script>
-                                function doDelete(id, name) {
-                                    var c = confirm("Bạn có muốn xoá sảm phẩm: " + name + "?");
-                                    if (c) {
-                                        window.location.href = "delete?pid=" + id;
-                                    }
-                                }
-                            </script>
-                            </tbody>
-                        </c:forEach>
 
+                        <tbody>
+
+                            <tr>
+                                <th>${i=i+1}</th>
+                                <td>${o.name}</td>
+                                <td><img src="${o.image}" style="width:180px"/></td> 
+                                <td>${o.price}</td>
+                                <td>${o.quantity}</td>
+                                <td>${o.quantity}</td>
+                                <td rowspan="3" style="border-top-color: black">
+                                    <a href="" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                    <a onclick="doDelete(${o.id}, '${o.name}')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Note</td>
+                                <td colspan="3"></td>
+                                <td>Total Money</td>
+                            </tr>
+                        <script>
+                            function doDelete(id, name) {
+                                var c = confirm("Bạn có muốn xoá sảm phẩm: " + name + "?");
+                                if (c) {
+                                    window.location.href = "delete?pid=" + id;
+                                }
+                            }
+                        </script>
+                        </tbody>
                     </table>
+
                 </div>
             </div>
         </div> 
