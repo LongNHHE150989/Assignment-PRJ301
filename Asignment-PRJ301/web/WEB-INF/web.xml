@@ -72,6 +72,14 @@
         <servlet-name>ProfileControl</servlet-name>
         <servlet-class>controller.ProfileControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderControl</servlet-name>
+        <servlet-class>controller.OrderControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditOrderControl</servlet-name>
+        <servlet-class>controller.EditOrderControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProductControl</servlet-name>
         <url-pattern>/product</url-pattern>
@@ -143,6 +151,14 @@
     <servlet-mapping>
         <servlet-name>ProfileControl</servlet-name>
         <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderControl</servlet-name>
+        <url-pattern>/order</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditOrderControl</servlet-name>
+        <url-pattern>/editorder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

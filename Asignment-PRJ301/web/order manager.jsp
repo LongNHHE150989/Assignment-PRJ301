@@ -94,14 +94,14 @@
 
         </header>
 
-        <div class="container-lg">
+        <div class="container-fluid" style="padding-left: 100px">
             <div class="table">
                 <div class="table-wrapper">
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-8"><h2 style="color: white"><b style="">Manager Order</b></h2></div>
                             <div class="col-sm-4">
-                                <a href="#addEmployeeModal"  class="btn btn-info add-new" data-toggle="modal" ><i class="fa fa-plus"></i> <span>Add New</span></a>
+                                <a href="#addEmployeeModal"  class="btn btn-info add-new" data-toggle="modal"><i class="fa fa-plus"></i> <span>Add New</span></a>
                             </div>
                         </div>
                     </div>
@@ -109,50 +109,49 @@
                     <table class="table table-bordered">
                         <c:set var="i" value="0"></c:set>    
                             <thead>
-                                <tr>
-                                    <th colspan="2">Account ID: </th>
-                                    <th colspan="2">Order ID: </th>
-                                    <th colspan="2">Order Date: </th>
-                                    <th style="width: 40px">Actions</th>
-                                </tr>
-                                <tr>
-                                    <th>STT</th>
+
+                                <tr>    
+                                    <th>STT</th>    
+                                    <th>Account ID</th>
                                     <th>Name</th>
-                                    <th>Image</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
                                     <th>Total Price</th>
-                            </tr>
-                        </thead>
+                                    <th>Note</th>
+                                    <th>Created Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        <c:forEach items="${list}" var="o">
+                            <tbody>
+                                <tr>
+                                    <th>${i=i+1}</th>
+                                    <td>${o.accountId}</td> 
+                                    <td>${o.shipping.name}</td> 
+                                    <td>${o.shipping.phone}</td> 
+                                    <td>${o.shipping.address}</td> 
+                                    <td>${o.totalPrice}</td> 
+                                    <td>${o.note}</td> 
+                                    <td>${o.createdDate}</td> 
+                                    <td>${o.status.statusname}</td> 
+                                    <td>
+                                        <a href="editorder?oid=${o.id}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                        <a onclick="doDelete()" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                    </td>
+                                </tr>
 
-                        <tbody>
-
-                            <tr>
-                                <th>${i=i+1}</th>
-                                <td>${o.name}</td>
-                                <td><img src="${o.image}" style="width:180px"/></td> 
-                                <td>${o.price}</td>
-                                <td>${o.quantity}</td>
-                                <td>${o.quantity}</td>
-                                <td rowspan="3" style="border-top-color: black">
-                                    <a href="" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                    <a onclick="doDelete(${o.id}, '${o.name}')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Note</td>
-                                <td colspan="3"></td>
-                                <td>Total Money</td>
-                            </tr>
-                        <script>
-                            function doDelete(id, name) {
-                                var c = confirm("Bạn có muốn xoá sảm phẩm: " + name + "?");
-                                if (c) {
-                                    window.location.href = "delete?pid=" + id;
+<!--                            <script>
+                                function doDelete(id, name) {
+                                    var c = confirm("Bạn có muốn xoá sảm phẩm: " + name + "?");
+                                    if (c) {
+                                        window.location.href = "delete?pid=" + id;
+                                    }
                                 }
-                            }
-                        </script>
-                        </tbody>
+                            </script>-->
+                            </tbody>
+                        </c:forEach>    
+
                     </table>
 
                 </div>
@@ -160,7 +159,7 @@
         </div> 
 
         <!-- Edit Modal HTML -->
-        <div id="addEmployeeModal" class="modal fade"style="background-color: black">
+<!--        <div id="addEmployeeModal" class="modal fade"style="background-color: black">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <form action="add" method="post">
@@ -213,7 +212,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div>-->
 
         <hr>
 

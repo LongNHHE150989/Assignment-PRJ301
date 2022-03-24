@@ -8,6 +8,8 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import model.Cart;
 import model.OrderDetail;
@@ -43,12 +45,34 @@ public class OrderDetailDAO extends BaseDAO<OrderDetail> {
         }
     }
 
-    public void getAllOrderDetails() {
+    public List<OrderDetail> getOrderDetail(int orderId) {
+        List<OrderDetail> list = new ArrayList<>();
         try {
-            String sql = "";
-            
+            String sql = "select * from OderDetail\n"
+                    + "where order_id =?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, orderId);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                OrderDetail od = new OrderDetail();
+                od.setId(rs.getInt("id"));
+                od.setProductName(rs.getString("productName"));
+                od.setProductImage(rs.getString("productImage"));
+                od.setProductPrice(rs.getDouble("productPrice"));
+                od.setQuantity(rs.getInt("quantity"));
+                list.add(od);
+            }
         } catch (Exception e) {
+
+        }
+        return list;
+    }
+    public static void main(String[] args) {
+        OrderDetailDAO dao = new OrderDetailDAO();
+//        int o = dao.getTotalProduct();
+        List<OrderDetail> listS = dao.getOrderDetail(3);
+        for (OrderDetail o : listS) {
+            System.out.println(o);
         }
     }
-
 }

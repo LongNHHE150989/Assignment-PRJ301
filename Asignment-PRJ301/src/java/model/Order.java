@@ -16,20 +16,28 @@ public class Order {
     private String note;
     private String createdDate;
     private int shippingID;
+    private Shipping shipping;
     private int statusID;
+    private Status status;
 
     public Order() {
     }
 
-    public Order(int id, int accountId, double totalPrice, String note, String createdDate, int shippingID, int statusID) {
+    public Order(int id, int accountId, double totalPrice, String note, String createdDate, int shippingID, Shipping shipping, int statusID, Status status) {
         this.id = id;
         this.accountId = accountId;
         this.totalPrice = totalPrice;
         this.note = note;
         this.createdDate = createdDate;
         this.shippingID = shippingID;
+        this.shipping = shipping;
         this.statusID = statusID;
+        this.status = status;
     }
+
+    
+
+    
 
     public int getId() {
         return id;
@@ -87,11 +95,26 @@ public class Order {
         this.statusID = statusID;
     }
 
+    public Shipping getShipping() {
+        return shipping;
+    }
+
+    public void setShipping(Shipping shipping) {
+        this.shipping = shipping;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "Order{" + "id=" + id + ", accountId=" + accountId + ", totalPrice=" + totalPrice + ", note=" + note + ", createdDate=" + createdDate + ", shippingID=" + shippingID + ", statusID=" + statusID + '}';
+        return "Order{" + "id=" + id + ", accountId=" + accountId + ", totalPrice=" + totalPrice + ", note=" + note + ", createdDate=" + createdDate + ", shippingID=" + shippingID + ", shipping=" + shipping + ", statusID=" + statusID + ", status=" + status + '}';
     }
-    
     
     
     

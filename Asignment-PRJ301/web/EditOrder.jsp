@@ -59,7 +59,7 @@
                             <li class="nav-item">
                                 <a href="order" class="nav-link">Order Manager</a>
                             </li>
-                        </c:if>     
+                        </c:if>
                         <li class="nav-item">
                             <a href="#about" class="nav-link">About</a>
                         </li>
@@ -102,7 +102,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Edit <b>Product</b></h2>
+                            <h2>Edit <b>Order</b></h2>
                         </div>
                         <div class="col-sm-6">
                         </div>
@@ -112,49 +112,51 @@
             <div id="editEmployeeModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="edit" method="post">
+                        <form action="editorder" method="post">
                             <div class="modal-header">						
-                                <h4 class="modal-title">Edit Product</h4>
+                                <h4 class="modal-title">Edit Order</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             </div>
                             <div class="modal-body">					
                                 <div class="form-group">
                                     <label>ID</label>
-                                    <input value="${product.id}" name="id" type="text" class="form-control" readonly required>
+                                    <input value="${od.id}" name="id" type="text" class="form-control" readonly required>
                                 </div>
+                                <div class="form-group">
+                                    <label for="accountid">Account ID</label>
+                                    <input id="accountid" value="${od.accountId}" name="accountid" type="text" class="form-control" required>
+                                </div>
+                                <input style="display: none" value="${od.shipping.id}" name="shippingid">
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input id="name" value="${product.name}" name="name" type="text" class="form-control" required>
+                                    <input id="name" value="${od.shipping.name}" name="name" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="image">Image</label>
-                                    <input id="image" value="${product.image}" name="image" type="text" class="form-control" required>
+                                    <label for="phone">Phone</label>
+                                    <input id="phone" value="${od.shipping.phone}" name="phone" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="price">Price</label>
-                                    <input id="price" value="${product.price}" name="price" type="text" class="form-control" required>
+                                    <label for="address">Address</label>
+                                    <textarea id="address" name="address" class="form-control" required>${od.shipping.address}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea id="description" name="description" class="form-control" required>${product.description}</textarea>
+                                    <label for="total">Total Price</label>
+                                    <input id="total" value="${od.totalPrice}" name="total" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="quantity">Quantity</label>
-                                    <input id="quantity" value="${product.quantity}" name="quantity" type="text" class="form-control" required>
+                                    <label for="note">Note</label>
+                                    <input id="note" value="${od.note}" name="note" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="category">Category</label>
-                                    <select id="category" name="category" class="form-select" aria-label="Default select example">
-                                        <c:forEach items="${listC}" var="o">
-                                            <option value="${o.cateID}" ${o.cateID==product.category.cateID?"selected":""}>${o.cname}</option>
+                                    <label for="createdDate">Created Date</label>
+                                    <input id="createdDate" value="${od.createdDate}" name="createdDate" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="status">Status</label>
+                                    <select id="status" name="status" class="form-select" aria-label="Default select example">
+                                        <c:forEach items="${listS}" var="o">
+                                            <option value="${o.statusid}" ${o.statusid==od.statusID?"selected":""}>${o.statusname}</option>
                                         </c:forEach>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="sale">Sale</label>
-                                    <select id="sale" name="sale" class="form-select" aria-label="Default select example">
-                                        <option value="false">False</option>
-                                        <option value="true">True</option>
                                     </select>
                                 </div>
 

@@ -5,19 +5,21 @@
  */
 package controller;
 
-import dal.ProductDAO;
+import dal.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Order;
 
 /**
  *
  * @author long4
  */
-public class EditControl extends HttpServlet {
+public class OrderControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,19 +33,11 @@ public class EditControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
-        int id =Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("name");
-        String image = request.getParameter("image");
-        double price =Double.parseDouble(request.getParameter("price"))  ;
-        String description = request.getParameter("description");
-        int quantity =Integer.parseInt(request.getParameter("quantity"));
-        int cateID =Integer.parseInt(request.getParameter("category"));
-        String sale = request.getParameter("sale");
+        OrderDAO dao = new OrderDAO();
+        List<Order> list = dao.getOrder();
         
-        ProductDAO dao= new ProductDAO();
-        dao.editProduct(name, image, price, cateID, description, quantity, sale, id);
-        response.sendRedirect("manager");
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("order manager.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

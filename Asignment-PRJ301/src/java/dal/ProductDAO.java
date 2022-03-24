@@ -237,7 +237,7 @@ public class ProductDAO extends BaseDAO<Product> {
         }
     }
 
-    public void editProduct(String name, String image, int price, int cateID, String description, int quantity, String sale, int id) {
+    public void editProduct(String name, String image, double price, int cateID, String description, int quantity, String sale, int id) {
         try {
             String sql = "UPDATE [Assignment_PRJ].[dbo].[product]\n"
                     + "   SET [name] = ?\n"
@@ -251,7 +251,7 @@ public class ProductDAO extends BaseDAO<Product> {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, name);
             statement.setString(2, image);
-            statement.setInt(3, price);
+            statement.setDouble(3, price);
             statement.setInt(4, cateID);
             statement.setString(5, description);
             statement.setInt(6, quantity);

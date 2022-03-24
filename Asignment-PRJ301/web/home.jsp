@@ -53,10 +53,14 @@
                         </li>
                         <c:if test="${sessionScope.acc.isAdmin}">
                             <li class="nav-item">
-                                <a href="manager" class="nav-link">Manager Product</a>
+                                <a href="manager" class="nav-link">Product Manager</a>
                             </li>
                         </c:if>
-
+                        <c:if test="${sessionScope.acc != null}">
+                            <li class="nav-item">
+                                <a href="order" class="nav-link">Order Manager</a>
+                            </li>
+                        </c:if>    
                         <li class="nav-item">
                             <a href="#about" class="nav-link">About</a>
                         </li>
